@@ -6,6 +6,8 @@ $segundo_nome = $_POST['segundo_nome'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$query = "insert into usuario (nome,email,senha) values ('$nickname', '$msg')";
+//$password = md5($password);
+
+$query = "insert into usuario (primeiro_nome,segundo_nome,email,senha) values ('$primeiro_nome','$segundo_nome', '$email','$password')";
 
 $resposta = mysqli_query($link, $query);
