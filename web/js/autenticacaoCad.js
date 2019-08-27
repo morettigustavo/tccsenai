@@ -37,7 +37,11 @@ formCad.addEventListener("submit", function (event) {
             url: "php/cadastrar.php",
             data: usuario,
             success: function (retorno) {
-                
+                if(retorno){
+                    window.location.href = "login.html";
+                }else{
+                    console.log("Usuario não cadastrado");
+                }
             }
         });
     }

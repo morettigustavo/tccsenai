@@ -1,3 +1,11 @@
+<?php 
+session_start();
+if(!isset($_SESSION['id_estudante'])){ ?>
+    <script>window.location.href = "login.html";</script>
+<?php }else{
+    $nome = $_SESSION['primeiro_nome']." ".$_SESSION['segundo_nome'];
+    $id = $_SESSION['id_estudante'];
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -163,7 +171,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $nome;?></span>
                                 <img class="img-profile rounded-circle"
                                     src="img/perfil_img.jpg" width="60" height="60">
                             </a>
@@ -388,11 +396,11 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Selecione "Logout" abaixo se você estiver pronto para terminar sua sessão atual.
+                <div class="modal-body">Selecione "Sair" abaixo se você estiver pronto para terminar sua sessão atual.
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href="login.html">Sair</a>
+                    <button class="btn btn-primary" onclick="sair()">Sair</button>
                 </div>
             </div>
         </div>
@@ -407,6 +415,17 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.js"></script>
+    <script>
+        function sair(){
+            jQuery.ajax({
+            url: "php/sair.php",
+            success: function (retorno) {
+                window.location.href = "index.php";
+            }
+        });
+        }
+    </script>
 </body>
 
 </html>
+<?php } ?>

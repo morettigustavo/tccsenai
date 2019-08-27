@@ -23,8 +23,17 @@ formEnt.addEventListener("submit", function(event){
             url: "php/login.php",
             data: usuario,
             success: function (retorno) {
-                console.log(retorno)
+                console.log(retorno);
+                if(retorno == "true"){
+                    window.location.href = "index.php";
+                }else{
+                    console.log("Email ou senha errados");
+                }
             }
         });
     }
 });
+
+function go(){
+    window.location.href = "index.php";
+}

@@ -11,3 +11,9 @@ $password = $_POST['password'];
 $query = "insert into usuario (primeiro_nome,segundo_nome,email,senha) values ('$primeiro_nome','$segundo_nome', '$email','$password')";
 
 $resposta = mysqli_query($link, $query);
+
+if($resposta == null){
+    echo "false";
+}else{
+    echo "true";
+}
