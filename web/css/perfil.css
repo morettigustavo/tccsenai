@@ -64,3 +64,12 @@
 .instagram .image:hover .caption {
     display: block;
 }
+
+.seguidores{
+    background-image: url(../img/menina.jpg);
+    width: 200px;
+    height: 200px;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+}

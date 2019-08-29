@@ -44,7 +44,7 @@ if(!isset($_SESSION['id_estudante'])){ ?>
                 <div class="sidebar-brand-icon rotate-n-15">
                     <img src="img/LOGO.png" width="100%">
                 </div>
-                <div class="sidebar-brand-text mx-3">GoStudy</div>
+                <div class="sidebar-brand-text mx-3">Go Study</div>
             </a>
 
             <!-- Divider -->
@@ -172,8 +172,7 @@ if(!isset($_SESSION['id_estudante'])){ ?>
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $nome;?></span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/perfil_img.jpg" width="60" height="60">
+                                <img class="img-profile rounded-circle" src="img/perfil_img.jpg" width="60" height="60">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -235,9 +234,7 @@ if(!isset($_SESSION['id_estudante'])){ ?>
                                         <!--/ cardbox-heading -->
 
                                         <div class="cardbox-item">
-                                            <img class="img-fluid"
-                                                src="img/menina.jpg"
-                                                alt="Image">
+                                            <img class="img-fluid" src="img/menina.jpg" alt="Image">
                                         </div>
                                         <!--/ cardbox-item -->
                                         <div class="cardbox-base">
