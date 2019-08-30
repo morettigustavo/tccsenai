@@ -1,16 +1,8 @@
-<?php 
-session_start();
-if(!isset($_SESSION['id_estudante'])){ ?>
-    <script>window.location.href = "login.html";</script>
-<?php }else{
-    $nome = $_SESSION['primeiro_nome']." ".$_SESSION['segundo_nome'];
-    $id = $_SESSION['id_estudante'];
-?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,7 +24,6 @@ if(!isset($_SESSION['id_estudante'])){ ?>
 </head>
 
 <body id="page-top">
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -171,7 +162,7 @@ if(!isset($_SESSION['id_estudante'])){ ?>
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $nome;?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="nome"></span>
                                 <img class="img-profile rounded-circle" src="img/perfil_img.jpg" width="60" height="60">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -180,9 +171,9 @@ if(!isset($_SESSION['id_estudante'])){ ?>
                                 <a class="dropdown-item" href="perfil.html">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Configurações
-                                </a>
+                                </a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Sair
@@ -412,17 +403,8 @@ if(!isset($_SESSION['id_estudante'])){ ?>
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.js"></script>
-    <script>
-        function sair(){
-            jQuery.ajax({
-            url: "php/sair.php",
-            success: function (retorno) {
-                window.location.href = "index.php";
-            }
-        });
-        }
-    </script>
+    <script src="js/verificar_login.js"></script>
+    
 </body>
 
 </html>
-<?php } ?>

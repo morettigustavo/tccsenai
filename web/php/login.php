@@ -5,7 +5,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $rememberMe = $_POST['rememberMe'];
 
-//$password = md5($password);
+$password = md5($password);
 
 $query = "select * from usuario where email = '$email' and senha = '$password'";
 $resposta = mysqli_query($link, $query);

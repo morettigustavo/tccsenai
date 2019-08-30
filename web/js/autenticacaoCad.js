@@ -21,7 +21,7 @@ formCad.addEventListener("submit", function (event) {
     }else if(password_again.value == ""){
         password_again.focus();
     }else if(password.value != password_again.value){
-        alert("As senha não são iguail");
+        alert("As senha não são iguais");
         password_again.focus();
     }else{
         let usuario = {
