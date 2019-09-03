@@ -10,6 +10,15 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+.publiImg{
+  width: auto;
+  height: 100%; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
 :root {
   --blue: #4e73df;
   --indigo: #6610f2;
@@ -2085,7 +2094,8 @@ select.form-control:focus::-ms-value {
 }
 
 .form-control-file,
-.form-control-range {
+.form-control-range,
+.form-control-image {
   display: block;
   width: 100%;
 }
@@ -11754,6 +11764,8 @@ form.user .btn-user {
   width: 12.5rem;
 }
 
+
+
 @-webkit-keyframes noise-anim {
   0% {
     clip: rect(89px, 9999px, 100px, 0);
@@ -12058,3 +12070,4 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+
