@@ -183,11 +183,11 @@
                             <div class="col-md-8">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form>
+                                        <form id="formPostar">
                                             <div class="row">
                                                 <div class="form-group mx-auto">
-                                                    <label for="exampleFormControlFile1">Exemplo de input de arquivo</label>
-                                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                                    <label for="map">Selecione seu mapa mental/ficha de estudo</label>
+                                                    <input type="file" class="form-control-file" id="map">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -195,7 +195,7 @@
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">Área do conhecimento</label>
                                                         <!-- <input type="text" class="form-control"> -->
-                                                        <select id="disabledSelect" class="form-control">
+                                                        <select id="areaConhecimento" class="form-control">
                                                             <option>Selecionar</option>
                                                             <option>Ciências Humanas</option>
                                                             <option>Ciências da Natureza</option>
@@ -205,16 +205,16 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="bmd-label-floating">Matéria</label>
-                                                        <input type="email" class="form-control">
+                                                        <label class="bmd-label-floating" for="materia">Matéria</label>
+                                                        <input type="text" class="form-control" id="materia">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="form-group">
-                                                        <label class="bmd-label-floating">Tags</label>
-                                                        <input type="text" class="form-control">
+                                                        <label class="bmd-label-floating" for="tags">Tags</label>
+                                                        <input type="text" class="form-control" id="tags">
                                                     </div>
                                                 </div>
                                             </div>
@@ -278,6 +278,7 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.js"></script>
     <script src="js/verificar_login.js"></script>
+    <script src="js/postar.js"></script>
 </body>
 
 </html>
