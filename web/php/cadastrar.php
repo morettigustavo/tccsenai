@@ -1,5 +1,5 @@
 <?php
-include_once("conexao.php");
+require_once('conexao.php');
 
 $primeiro_nome = $_POST['primeiro_nome'];
 $segundo_nome = $_POST['segundo_nome'];

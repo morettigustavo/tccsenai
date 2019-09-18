@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 16-Set-2019 às 20:16
+-- Generation Time: 18-Set-2019 às 21:01
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -91,19 +91,6 @@ INSERT INTO `conteudo` (`id_conteudo`, `nome`, `id_materia`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `cont_post`
---
-
-CREATE TABLE IF NOT EXISTS `cont_post` (
-  `id_conteudo` int(11) DEFAULT NULL,
-  `id_postagem` int(11) DEFAULT NULL,
-  KEY `id_conteudo` (`id_conteudo`),
-  KEY `id_postagem` (`id_postagem`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `cont_selec`
 --
 
@@ -162,6 +149,7 @@ CREATE TABLE IF NOT EXISTS `favoritos` (
 CREATE TABLE IF NOT EXISTS `postagem` (
   `id_postagem` int(11) NOT NULL,
   `id_estudante` int(11) DEFAULT NULL,
+  `id_conteudo` int(11) NOT NULL,
   PRIMARY KEY (`id_postagem`),
   KEY `id_estudante` (`id_estudante`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -216,13 +204,6 @@ ALTER TABLE `comentarios`
 --
 ALTER TABLE `conteudo`
   ADD CONSTRAINT `id_materia` FOREIGN KEY (`id_materia`) REFERENCES `area_de_conhecimento` (`id_materia`);
-
---
--- Limitadores para a tabela `cont_post`
---
-ALTER TABLE `cont_post`
-  ADD CONSTRAINT `cont_post_ibfk_2` FOREIGN KEY (`id_postagem`) REFERENCES `postagem` (`id_postagem`),
-  ADD CONSTRAINT `cont_post_ibfk_1` FOREIGN KEY (`id_conteudo`) REFERENCES `conteudo` (`id_conteudo`);
 
 --
 -- Limitadores para a tabela `cont_selec`
