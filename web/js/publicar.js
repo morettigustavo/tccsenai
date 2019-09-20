@@ -1,6 +1,7 @@
 let formPost = document.querySelector('#formPostar');
 
 let map = document.querySelector("#map");
+let titulo = document.querySelector("#titulo");
 let area = document.querySelector("#areaConhecimento");
 let materia = document.querySelector("#materia");
 let tags = document.querySelector("#tags");
@@ -11,8 +12,8 @@ formPost.addEventListener("submit", function (event) {
     // console.log(area.value);
     // console.log(materia.value);
     // console.log(tags.value);
-
     let postagem = {
+        titulo: titulo.value,
         area: area.value,
         materia: materia.value,
         tags: tags.value
