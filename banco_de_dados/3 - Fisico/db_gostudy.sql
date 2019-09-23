@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `tag_post` (
   `id_postagem` int(11) NOT NULL,
   `id_tag` int(11) NOT NULL,
   FOREIGN KEY (`id_postagem`) REFERENCES `postagem` (`id_postagem`),
-  FOREIGN KEY (`id_tag`) REFERENCES `id_tag` (`id_tag`)
+  FOREIGN KEY (`id_tag`) REFERENCES `tag` (`id_tag`)
 );
 
 
