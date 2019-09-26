@@ -41,6 +41,7 @@
   --danger: #e74a3b;
   --light: #f8f9fc;
   --dark: #5a5c69;
+  --cor_barra: #6959CD;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -571,10 +572,9 @@ pre code {
   margin-left: auto;
 }
 
-.seguidores{
-  background-image: url(../img/menina.jpg);
-  width: 200px;
-  height: 200px;
+.img_perfil{
+  width: 12em;
+  height: 12em;
   background-position: center; 
   background-repeat: no-repeat; 
   background-size: cover;
@@ -2637,6 +2637,13 @@ fieldset:disabled a.btn {
   border-color: #4e73df;
 }
 
+.btn-red{
+  background-color: #DC143C!important;
+}
+
+.btn-red:hover{
+  background-color: #CD5C5C!important;
+}
 .btn-primary:hover {
   color: #fff;
   background-color: #2e59d9;
@@ -10704,9 +10711,9 @@ a:focus {
 }
 
 .bg-gradient-primary {
-  background-color: #4e73df;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, #4e73df), to(#224abe));
-  background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+  background-color: var(--cor_barra);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, var(--cor_barra)), to(#224abe));
+  background-image: linear-gradient(180deg, var(--cor_barra) 10%, #224abe 100%);
   background-size: cover;
 }
 
@@ -11287,7 +11294,7 @@ a:focus {
   text-align: center;
   padding: 0 1rem;
   font-weight: 800;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
 }
 
 @media (min-width: 768px) {
@@ -11355,7 +11362,7 @@ a:focus {
   }
   .sidebar.toggled {
     overflow: visible;
-    width: 7.5rem !important;
+    width: 8.5rem !important;
   }
   .sidebar.toggled .nav-item .collapse {
     position: absolute;
@@ -11392,7 +11399,7 @@ a:focus {
     width: 7.5rem;
   }
   .sidebar.toggled .nav-item .nav-link span {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     display: block;
   }
   .sidebar.toggled .nav-item .nav-link i {
