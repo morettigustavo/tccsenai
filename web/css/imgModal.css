@@ -5,7 +5,7 @@
     /* Stay in place */
     z-index: 1;
     /* Sit on top */
-    padding-top: 100px;
+    padding-top: 2%;
     /* Location of the box */
     left: 0;
     top: 0;
@@ -22,11 +22,10 @@
 }
 
 /* Modal Content (image) */
-.modal-content {
+.modal-content-img {
     margin: auto;
     display: block;
-    width: 90%;
-    max-width: 1200px;
+    width: 70%!important;
 }
 
 /* Caption of Modal Image */
