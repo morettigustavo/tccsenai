@@ -143,15 +143,15 @@
 
 .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .btn-primary.active.focus, .btn-primary.active:focus, .btn-primary:active.focus, .btn-primary:active:focus {
   color: #fff;
-  background-color: #1e6ef2;
+  background-color: #32CD32;
 }
 
 .btn-primary .ink {
-  background-color: #1266f1;
+  background-color: #32CD32;
 }
 
 .btn-primary.pmd-btn-flat {
-  color: #4285f4;
+  color: #228B22;
   background-color: transparent;
 }
 
@@ -160,7 +160,7 @@
 }
 
 .btn-primary.pmd-btn-flat:active, .btn-primary.pmd-btn-flat.active, .btn-primary.pmd-btn-flat:focus {
-  color: #4285f4;
+  color: #228B22;
   background-color: #cccccc;
 }
 
@@ -169,14 +169,14 @@
 }
 
 .btn-primary.pmd-btn-outline {
-  border-color: #4285f4;
+  border-color: #228B22;
   background-color: transparent;
-  color: #4285f4;
+  color: #228B22;
 }
 
 .btn-primary.pmd-btn-outline:hover, .btn-primary.pmd-btn-outline:focus {
-  border-color: #1266f1;
-  background-color: #1e6ef2;
+  border-color: #32CD32;
+  background-color: #32CD32;
   color: #fff;
 }
 

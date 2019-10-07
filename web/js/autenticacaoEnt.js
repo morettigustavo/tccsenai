@@ -25,7 +25,7 @@ formEnt.addEventListener("submit", function(event){
             success: function (retorno) {
                 console.log(retorno);
                 if(retorno == "true"){
-                    window.location.href = "index.html";
+                    window.location.href = "index.php";
                 }else{
                     console.log("Email ou senha errados");
                 }
@@ -35,5 +35,5 @@ formEnt.addEventListener("submit", function(event){
 });
 
 function go(){
-    window.location.href = "index.html";
+    window.location.href = "index.php";
 }
