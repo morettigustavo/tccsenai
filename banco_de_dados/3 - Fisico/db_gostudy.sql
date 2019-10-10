@@ -50,10 +50,15 @@ CREATE TABLE IF NOT EXISTS `tag_post` (
 
 
 CREATE TABLE IF NOT EXISTS `comentarios` (
-  `id_postagem` int(11) ,
-  `id_estudante` int(11) ,
+  `id_comentario` int(11) NOT NULL AUTO_INCREMENT,
+  `id_postagem` int(11),
+  `id_estudante` int(11),
+  `comentario` varchar(256),
+  `data` date,
+  `hora` time,
   KEY `id_postagem` (`id_postagem`),
   KEY `id_estudante` (`id_estudante`),
+  PRIMARY KEY (`id_comentario`),
   FOREIGN KEY (`id_estudante`) REFERENCES `usuario` (`id_estudante`),
   FOREIGN KEY (`id_postagem`) REFERENCES `postagem` (`id_postagem`)
 );
@@ -61,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `comentarios` (
 CREATE TABLE IF NOT EXISTS `curtidas` (
   `id_postagem` int(11) ,
   `id_estudante` int(11) ,
-  `like` int(1) NOT NULL,
+  `tipo` int(1) NOT NULL,
   FOREIGN KEY (`id_postagem`) REFERENCES `postagem` (`id_postagem`),
   FOREIGN KEY (`id_estudante`) REFERENCES `usuario` (`id_estudante`)
 );

@@ -3,10 +3,10 @@ session_start();
 require_once('conexao.php');
 
 $id_estudante = $_GET['id_estudante'];
-$id_postagem = $_GET['id_postagem'];
-$id_comentario = $_GET['id_comentario'];
-
+$id_postagem = $_GET['id_postagem'];    
+$id_comentario = isset($_GET['id_comentario'])?$_GET['id_comentario']:0;
 $comentario = isset($_GET['comentario'])?$_GET['comentario']:"";
+
 $data = date('Y-m-d');
 $hora = date('H:i:s');
 $acao = $_GET['acao'];
@@ -31,8 +31,8 @@ if($acao == "comentarios"){
     $array = array();
 
     while($line = mysqli_fetch_array($query)){
-        $comentario = $line['comentario'];
-        $array[] = array('id_estudante' => $line['id_estudante'], 'id_postagem' => $line['id_postagem'], 'comentario'=> $comentario, 'data' => $line['data'], 'hora'=> $line['hora']);
+        $line['comentario']= utf8_encode($line['comentario']);
+        $array[] = array('id_estudante' => $line['id_estudante'], 'id_postagem' => $line['id_postagem'], 'comentario'=> $line['comentario'], 'data' => $line['data'], 'hora'=> $line['hora']);
     }
     echo json_encode($array);
 }
