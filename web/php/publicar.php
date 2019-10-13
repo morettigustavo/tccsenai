@@ -2,24 +2,29 @@
 session_start();
 require_once('conexao.php');
 
-
-
-$titulo = $_GET['titulo'];
-$area = $_GET['area'];
-$materia = $_GET['materia'];
-$tags = $_GET['tags'];
+$titulo = $_POST['titulo'];
+$area = $_POST['areaConhecimento'];
+$materia = $_POST['materia'];
+$tags = $_POST['tags'];
 
 $id_user = $_SESSION['id_estudante'];
+$nome = md5($_FILES['map']['name']);
 
-$sql = "INSERT INTO postagem(id_estudante,id_materia,titulo) VALUES ($id_user,1,'$titulo')";
-
+$sql = "INSERT INTO postagem(id_estudante,id_materia,titulo_postagem,imagem_postagem) VALUES ($id_user,1,'$titulo','$nome')";
 mysqli_query($link, $sql);
 
-$caminho = "postagens/";
-@mkdir($caminho, 0777);
-$name = "foto";
-    if(isset($_FILES[$name]['name'])){
-    $foto = $_FILES[$name]['name'];
-    move_uploaded_file($_FILES[$name]['tmp_name'], $pasta."/imagem$i.png");
-}
+$sql = "SELECT id_postagem FROM postagem ORDER BY id_postagem DESC LIMIT 1;";
+$resultado = mysqli_query($link, $sql);
+
+$line = mysqli_fetch_array($resultado);
+$id = $line['id_postagem'];
+
+$pasta = "postagens/$id";
+@mkdir($pasta, 0777);
+
+$destino = "postagens/$id/" . md5($_FILES['map']['name']) . ".png";
+ 
+$arquivo_tmp = $_FILES['map']['tmp_name'];
+ 
+move_uploaded_file( $arquivo_tmp, $destino  );
 ?>

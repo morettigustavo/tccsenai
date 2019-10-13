@@ -3,31 +3,30 @@ SET time_zone = "+00:00";
 
 CREATE TABLE  IF NOT EXISTS `usuario` (
   `id_estudante` int(11) NOT NULL AUTO_INCREMENT,
-  `primeiro_nome` varchar(64) ,
-  `segundo_nome` varchar(64) NOT NULL,
-  `email` varchar(64) ,
-  `senha` varchar(64) ,
+  `primeiro_nome_usuario` varchar(64) ,
+  `segundo_nome_usuario` varchar(64) NOT NULL,
+  `email_usuario` varchar(64) ,
+  `senha_usuario` varchar(64) ,
   PRIMARY KEY (`id_estudante`)
 );
 
-CREATE TABLE  IF NOT EXISTS `area_de_conhecimento` (
+CREATE TABLE  IF NOT EXISTS `area` (
   `id_area` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(64) ,
-  `descricao` varchar(128) ,
+  `nome_area` varchar(64) ,
   PRIMARY KEY (`id_area`)
 );
 
 CREATE TABLE  IF NOT EXISTS `materia` (
   `id_materia` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(64) ,
+  `nome_materia` varchar(64) ,
   `id_area` int(11) NOT NULL,
   PRIMARY KEY (`id_materia`),
-  FOREIGN KEY (`id_area`) REFERENCES `area_de_conhecimento` (`id_area`)
+  FOREIGN KEY (`id_area`) REFERENCES `area` (`id_area`)
 );
 
 CREATE TABLE IF NOT EXISTS `tag` (
   `id_tag` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(16) NOT NULL,
+  `nome_tag` varchar(16) NOT NULL,
   PRIMARY KEY (`id_tag`)
 );
 
@@ -35,7 +34,8 @@ CREATE TABLE IF NOT EXISTS `postagem` (
   `id_postagem` int(11) NOT NULL AUTO_INCREMENT,
   `id_estudante` int(11) ,
   `id_materia` int(11) NOT NULL,
-  `titulo` varchar(64) ,
+  `titulo_postagem` varchar(64) ,
+  `imagem_postagem` varchar(64),
   PRIMARY KEY (`id_postagem`),
   FOREIGN KEY (`id_estudante`) REFERENCES `usuario` (`id_estudante`),
   FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id_materia`)
@@ -53,9 +53,9 @@ CREATE TABLE IF NOT EXISTS `comentarios` (
   `id_comentario` int(11) NOT NULL AUTO_INCREMENT,
   `id_postagem` int(11),
   `id_estudante` int(11),
-  `comentario` varchar(256),
-  `data` date,
-  `hora` time,
+  `texto_comentario` varchar(256),
+  `data_comentario` date,
+  `hora_comentario` time,
   KEY `id_postagem` (`id_postagem`),
   KEY `id_estudante` (`id_estudante`),
   PRIMARY KEY (`id_comentario`),
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `comentarios` (
 CREATE TABLE IF NOT EXISTS `curtidas` (
   `id_postagem` int(11) ,
   `id_estudante` int(11) ,
-  `tipo` int(1) NOT NULL,
+  `tipo_curtida` int(1) NOT NULL,
   FOREIGN KEY (`id_postagem`) REFERENCES `postagem` (`id_postagem`),
   FOREIGN KEY (`id_estudante`) REFERENCES `usuario` (`id_estudante`)
 );
@@ -99,12 +99,12 @@ CREATE TABLE IF NOT EXISTS `cont_selec` (
   FOREIGN KEY (`id_materia`) REFERENCES `materia` (`id_materia`)
 );
 
-INSERT INTO `area_de_conhecimento` (`id_area`, `nome`, `descricao`) VALUES
-(1, 'Ciências Humanas', NULL),
-(2, 'Ciências da Natureza', NULL),
-(3, 'Linguagens e Códigos', NULL);
+INSERT INTO `area` (`id_area`, `nome_area`) VALUES
+(1, 'Ciências Humanas'),
+(2, 'Ciências da Natureza'),
+(3, 'Linguagens e Códigos');
 
-INSERT INTO `materia` (`id_materia`, `nome`, `id_area`) VALUES
+INSERT INTO `materia` (`id_materia`, `nome_materia`, `id_area`) VALUES
 (1, 'Física', 2),
 (2, 'Biologia', 2),
 (3, 'Química', 2),
@@ -119,7 +119,7 @@ INSERT INTO `materia` (`id_materia`, `nome`, `id_area`) VALUES
 (12, 'Filosofia', 1),
 (13, 'Sociologia', 1);
 
-INSERT INTO `usuario` (`id_estudante`, `primeiro_nome`, `segundo_nome`, `email`, `senha`) VALUES
+INSERT INTO `usuario` (`id_estudante`, `primeiro_nome_usuario`, `segundo_nome_usuario`, `email_usuario`, `senha_usuario`) VALUES
 (1, 'Alexandre', 'Wesley', 'alexandre@gmail.com', '123'),
 (2, 'Gustavo', 'Moretti', 'moretti@gmail.com', '123');
 

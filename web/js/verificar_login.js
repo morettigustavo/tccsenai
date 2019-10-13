@@ -17,7 +17,7 @@ function sair() {
           let retornoString = jQuery.parseJSON(retorno);
           let nome = document.querySelector("#nome");
           nome.innerHTML = retornoString.nome;
-          console.log(retorno);
+          // console.log(retorno);
   
           retornoString.forEach(msg => {
             nome.innerHTML = msg.nome;

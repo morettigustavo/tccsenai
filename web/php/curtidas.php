@@ -9,21 +9,21 @@ $tipo = $_GET['tipo'];
 // SQL
 $where = "WHERE id_estudante = $id_estudante AND id_postagem = $id_publicacao";
 
-$query = "SELECT tipo FROM curtidas $where ";
+$query = "SELECT tipo_curtida FROM curtidas $where ";
 
 $sql = mysqli_query($link, $query);
 $line = mysqli_fetch_array($sql);
 
 if($line == null){
-    $query = "INSERT INTO curtidas(id_postagem, id_estudante, tipo) VALUES ($id_publicacao, $id_estudante, $tipo)";
+    $query = "INSERT INTO curtidas(id_postagem, id_estudante, tipo_curtida) VALUES ($id_publicacao, $id_estudante, $tipo)";
 }else{
-    if($line['tipo'] == $tipo){
+    if($line['tipo_curtida'] == $tipo){
         $query = "DELETE FROM curtidas $where";
     }else{
-        if($line['tipo'] == 1){
-            $query = "UPDATE curtidas SET tipo = -1 $where";
+        if($line['tipo_curtida'] == 1){
+            $query = "UPDATE curtidas SET tipo_curtida = -1 $where";
         }else{
-            $query = "UPDATE curtidas SET tipo =  1 $where";
+            $query = "UPDATE curtidas SET tipo_curtida =  1 $where";
         }
     }
 }

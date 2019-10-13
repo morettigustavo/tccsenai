@@ -8,7 +8,7 @@ $password = $_POST['password'];
 
 // $password = md5($password);
 
-$query = "insert into usuario (primeiro_nome,segundo_nome,email,senha) values ('$primeiro_nome','$segundo_nome', '$email','$password')";
+$query = "insert into usuario (primeiro_nome_usuario,segundo_nome_usuario,email_usuario,senha_usuario) values ('$primeiro_nome','$segundo_nome', '$email','$password')";
 
 $resposta = mysqli_query($link, $query);
 

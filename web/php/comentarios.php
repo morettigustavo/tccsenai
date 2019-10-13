@@ -18,11 +18,11 @@ switch($acao){
     break;
 
     case "enviar":
-        $sql = "INSERT INTO comentarios(id_estudante, id_postagem, comentario, data, hora)  VALUES ($id_estudante, $id_postagem, '$comentario', '$data', '$hora')";
+        $sql = "INSERT INTO comentarios(id_estudante, id_postagem, texto_comentario, data_comentario, hora_comentario)  VALUES ($id_estudante, $id_postagem, '$comentario', '$data', '$hora')";
     break;
 
     case "comentarios":
-        $sql = "SELECT usuario.primeiro_nome, usuario.segundo_nome, comentarios.*
+        $sql = "SELECT usuario.primeiro_nome_usuario, usuario.segundo_nome_usuario, comentarios.*
         FROM comentarios
         INNER JOIN usuario ON comentarios.id_estudante = usuario.id_estudante
         WHERE id_postagem = $id_postagem";
@@ -40,7 +40,7 @@ if($acao == "comentarios"){
 
     while($line = mysqli_fetch_array($query)){
         $line['comentario']= utf8_encode($line['comentario']);
-        $array[] = array('id_estudante' => $line['id_estudante'], 'id_postagem' => $line['id_postagem'], 'comentario'=> $line['comentario'], 'data' => $line['data'], 'hora'=> $line['hora'], 'primeiro_nome' => $line['primeiro_nome'], 'segundo_nome' => $line['segundo_nome']);
+        $array[] = array('id_estudante' => $line['id_estudante'], 'id_postagem' => $line['id_postagem'], 'texto_comentario'=> $line['texto_comentario'], 'data_comentario' => $line['data_comentario'], 'hora_comentario'=> $line['hora_comentario'], 'primeiro_nome_usuario' => $line['primeiro_nome_usuario'], 'segundo_nome_usuario' => $line['segundo_nome_usuario']);
     }
     echo json_encode($array);
 }

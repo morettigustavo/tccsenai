@@ -33,22 +33,26 @@
                                                     <div class="col">
                                                         <div class="form-group">
                                                             <label class="bmd-label-floating" for="titulo">Título</label>
-                                                            <input type="text" class="form-control" id="titulo">
+                                                            <input type="text" class="form-control" name="titulo" id="titulo">
                                                         </div>
                                                     </div>
                                                 </div>
                                             <div class="row">
                                                 <div class="form-group mx-auto mt-3">
                                                     <label for="map">Selecione seu mapa mental/ficha de estudo</label>
-                                                    <input type="file" class="form-control-file" id="map">
+                                                    <input type="file" class="form-control-file" id="map" name="map">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group mx-auto mt-3">
+                                                    <img class="img-fluid" id="imagem">
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">Área do conhecimento</label>
-                                                        <!-- <input type="text" class="form-control"> -->
-                                                        <select id="areaConhecimento" class="form-control">
+                                                        <select id="areaConhecimento" name="areaConhecimento" class="form-control">
                                                             <option value="0">Selecionar</option>
                                                             <option value="1">Ciências Humanas</option>
                                                             <option value="2">Ciências da Natureza</option>
@@ -59,7 +63,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating" for="materia">Matéria</label>
-                                                        <input type="text" class="form-control" id="materia">
+                                                        <input type="text" class="form-control" id="materia" name="materia">
                                                     </div>
                                                 </div>
                                             </div>
@@ -67,7 +71,7 @@
                                                 <div class="col">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating" for="tags">Tags</label>
-                                                        <input type="text" class="form-control" id="tags">
+                                                        <input type="text" class="form-control" id="tags" name="tags">
                                                     </div>
                                                 </div>
                                             </div>
@@ -96,6 +100,7 @@
     <!-- End of Page Wrapper -->
 
     <?php require_once("geral/js.html");?>
+    <script src="js/publicar.js"></script>
 </body>
 
 </html>

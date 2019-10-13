@@ -7,7 +7,7 @@ $rememberMe = $_POST['rememberMe'];
 
 // $password = md5($password);
 
-$query = "select * from usuario where email = '$email' and senha = '$password'";
+$query = "select * from usuario where email_usuario = '$email' and senha_usuario = '$password'";
 $resposta = mysqli_query($link, $query);
 $line = mysqli_fetch_array($resposta);
 
@@ -16,17 +16,13 @@ if($line == 0){
 }else{
     session_start();
     $_SESSION['id_estudante'] = $line['id_estudante'];
-    $_SESSION['primeiro_nome'] = $line['primeiro_nome'];
-    $_SESSION['segundo_nome'] = $line['segundo_nome'];
-    $_SESSION['email'] = $line['email'];
-    $_SESSION['senha'] = $line['senha'];
+    $_SESSION['primeiro_nome'] = $line['primeiro_nome_usuario'];
+    $_SESSION['segundo_nome'] = $line['segundo_nome_usuario'];
+    $_SESSION['email'] = $line['email_usuario'];
+    $_SESSION['senha'] = $line['senha_usuario'];
     
     $id = $line['id_estudante'];
     $data = date('Y-m-d');
     $hora = date('H:i:s');
-    $ip = $_SERVER["REMOTE_ADDR"];
-
-    $query = "insert into log (id_estudante,hora,data,ip) values ('$id', '$hora', '$data', '$ip')";
-    $resposta = mysqli_query($link, $query);
     echo "true";
 }
