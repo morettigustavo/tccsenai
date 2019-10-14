@@ -1,4 +1,28 @@
-<!-- Postagem -->
+<?php 
+require_once('php/conexao.php');
+
+$sql = "SELECT 
+postagem.id_postagem, postagem.titulo_postagem, postagem.imagem_postagem,
+materia.nome_materia,
+area.nome_area,
+usuario.primeiro_nome_usuario,usuario.segundo_nome_usuario
+FROM postagem
+INNER JOIN materia ON postagem.id_materia = materia.id_materia
+INNER JOIN area ON materia.id_area = area.id_area
+INNER JOIN usuario ON postagem.id_estudante = usuario.id_estudante";
+
+$query = mysqli_query($link, $sql);
+
+//JSON de retorno da postagem(Postagem em forma de um json facilita para o front end transformar em dados na tela)
+
+$array = array();
+while($line = mysqli_fetch_array($query)){
+    $id_postagem = $line['id_postagem'];
+
+    $qnt_pos = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM curtidas WHERE id_postagem = $id_postagem AND tipo_curtida = 1"))['count(*)'];
+    $qnt_neg = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM curtidas WHERE id_postagem = $id_postagem AND tipo_curtida = -1;"))['count(*)'];
+    ?>
+
 <section class="hero">
     <div class="cardbox shadow-lg bg-white">
         <div class="cardbox-heading">
@@ -19,7 +43,7 @@
                     <a href=""><img class="img-fluid rounded-circle" src="img/ana.png" alt="User"></a>
                 </div>
                 <div class="media-body">
-                    <p class="m-0">Ana Luiza Furtado</p>
+                    <p class="m-0"><?php echo $line['primeiro_nome_usuario']." ". $line['segundo_nome_usuario']?></p>
                     <small><span><i class="icon ion-md-time"></i> 5 horas atrás</span></small>
                 </div>
             </div>
@@ -27,24 +51,21 @@
         </div>
         <!--/ cardbox-heading -->
         <div class="container">
-            <h1>Hidrocarbonetos Ramificados</h1>
+            <h1><?php echo $line['titulo_postagem']?></h1>
         </div>
         <div class="container cardbox-item">
-            <img class="img-fluid" src="img/mapa1.jpg" alt="Image" id="img1">
+            <img class="img-fluid" src="<?php echo "php/postagens/".$id_postagem."/".$line['imagem_postagem'].".png"?>" alt="Image" id="img1">
         </div>
         <!--/ cardbox-item -->
-        <div class="cardbox-base">
+        <div class="container cardbox-base">
+            <ul>
+                <li><a><i class="fa fa-thumbs-up like"></i><em><?php echo $qnt_pos?></em></a></li>
+            </ul>
+            <ul>
+                <li><a><i class="fa fa-thumbs-down deslike"></i><em><?php echo $qnt_neg?></em></a></li>
+            </ul>
             <ul class="float-right">
-                <li><a><i class="fa fa-comments comment"></i></a></li>
-                <li><a><em class="mr-5">12</em></a></li>
-            </ul>
-            <ul>
-                <li><a><i class="fa fa-thumbs-up ml-5 like"></i></a></li>
-                <li><a><em>564</em></a></li>
-            </ul>
-            <ul>
-                <li><a><i class="fa fa-thumbs-down deslike"></i></a></li>
-                <li><a><em>12</em></a></li>
+                <li><a><i class="fa fa-comments comment"></i><em>12</em></a></li>
             </ul>
         </div>
         <!--/ cardbox-base -->
@@ -62,4 +83,8 @@
     </div>
     <!--/ cardbox -->
 </section>
+
+<?php } ?>
+
+
 

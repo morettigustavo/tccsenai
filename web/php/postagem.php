@@ -33,4 +33,4 @@ while($line = mysqli_fetch_array($query)){
     'nome_area' => $line['nome_area'], 'up'=> $qnt_pos, 'down' => $qnt_neg,
     'primeiro_nome_usuario' => $line['primeiro_nome_usuario'], 'segundo_nome_usuario' => $line['segundo_nome_usuario']);
 }
-echo json_encode($array);
+// echo json_encode($array);

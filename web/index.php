@@ -21,7 +21,7 @@
                 <?php require_once("geral/top-bar.html");?>
 
                 <div class="container">
-                <?php require_once("postagem.html");?>
+                <?php require_once("postagem.php");?>
                 </div>
                 
             </div>
