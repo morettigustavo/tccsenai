@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once('php/conexao.php');
 
 $sql = "SELECT 
@@ -18,9 +18,13 @@ $query = mysqli_query($link, $sql);
 $array = array();
 while($line = mysqli_fetch_array($query)){
     $id_postagem = $line['id_postagem'];
+    $id_estudante = $_SESSION['id_estudante'];
 
     $qnt_pos = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM curtidas WHERE id_postagem = $id_postagem AND tipo_curtida = 1"))['count(*)'];
-    $qnt_neg = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM curtidas WHERE id_postagem = $id_postagem AND tipo_curtida = -1;"))['count(*)'];
+    $qnt_neg = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM curtidas WHERE id_postagem = $id_postagem AND tipo_curtida = -1"))['count(*)'];
+    $qnt_com = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM comentarios WHERE id_postagem = $id_postagem"))['count(*)'];
+    $is_liked = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM curtidas WHERE id_postagem = $id_postagem AND tipo_curtida = 1 AND id_estudante = $id_estudante;"))['count(*)'];
+    $is_unliked = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM curtidas WHERE id_postagem = $id_postagem AND tipo_curtida = -1 AND id_estudante = $id_estudante;"))['count(*)'];
     ?>
 
 <section class="hero">
@@ -54,18 +58,18 @@ while($line = mysqli_fetch_array($query)){
             <h1><?php echo $line['titulo_postagem']?></h1>
         </div>
         <div class="container cardbox-item">
-            <img class="img-fluid" src="<?php echo "php/postagens/".$id_postagem."/".$line['imagem_postagem'].".png"?>" alt="Image" id="img1">
+            <img class="img-fluid" src="<?php echo "php/postagens/".$id_postagem."/".$line['imagem_postagem'].".png"?>" alt="Image" id="img<?php echo $id_postagem?>" onclick="img(<?php echo $id_postagem?>)">
         </div>
         <!--/ cardbox-item -->
         <div class="container cardbox-base">
             <ul>
-                <li><a><i class="fa fa-thumbs-up like"></i><em><?php echo $qnt_pos?></em></a></li>
+                <li><a><i id="l_<?php echo $id_postagem?>"class="fa fa-thumbs-up curtida <?php if($is_liked){echo "liked";}?>"></i><em id="lt_<?php echo $id_postagem?>"><?php echo $qnt_pos?></em></a></li>
             </ul>
             <ul>
-                <li><a><i class="fa fa-thumbs-down deslike"></i><em><?php echo $qnt_neg?></em></a></li>
+                <li><a><i id="d_<?php echo $id_postagem?>" class="fa fa-thumbs-down curtida <?php if($is_unliked){echo "liked";}?>"></i><em id="ld_<?php echo $id_postagem?>"><?php echo $qnt_neg?></em></a></li>
             </ul>
             <ul class="float-right">
-                <li><a><i class="fa fa-comments comment"></i><em>12</em></a></li>
+                <li><a><i class="fa fa-comments comment"></i><em><?php echo $qnt_com?></em></a></li>
             </ul>
         </div>
         <!--/ cardbox-base -->

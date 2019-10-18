@@ -3,7 +3,7 @@
 
 <head>
     <title>Feed</title>
-    <?php require_once("geral/cabecalho.html");?>
+    <?php require_once("geral/cabecalho.html"); session_start();?>
     <link href="css/publi.css" rel="stylesheet">
     <link href="css/imgModal.css" rel="stylesheet">
 </head>
@@ -32,9 +32,9 @@
         </div>
 
 
-        <div id="myModal" class="modal">
-            <span class="close">&times;</span>
-            <img class="modal-content-img modal-content" id="img01">
+        <div id="myModal" class="modal-img">
+            <span class="close" id="close">&times;</span>
+            <img class="modal-content-img" id="img01">
         </div>
         <!-- End of Content Wrapper -->
 
@@ -53,17 +53,7 @@
 
     <?php require_once("geral/js.html");?>
     <script src="js/modalFeed.js"></script>
-<script>
-    jQuery("i.like").click(function(){
-        console.log();
-        if("rgb(0, 0, 255)" == $(this).css('color')){
-            $(this).css("color", "");
-        }else{
-            $(this).css("color", "blue");
-        }
-        // console.log($(this).css("color", ""));
-    });
-</script>
+    <script src="js/gostei.js"></script>
 </body>
 
 </html>

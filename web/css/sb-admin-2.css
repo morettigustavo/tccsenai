@@ -11,14 +11,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-.publiImg{
-  width: auto;
-  height: 100%; 
-  background-position: center; 
-  background-repeat: no-repeat; 
-  background-size: cover;
-}
-
 :root {
   --blue: #4e73df;
   --indigo: #6610f2;
@@ -78,6 +70,19 @@ body {
   color: #858796;
   text-align: left;
   background-color: #fff;
+}
+
+
+.publiImg{
+  width: auto;
+  height: 100%; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+
+.liked{
+  color: rgb(0, 0, 255)!important;
 }
 
 [tabindex="-1"]:focus {
