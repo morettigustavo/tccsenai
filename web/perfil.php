@@ -113,15 +113,24 @@
 
 </html>
 
-<div id="insertimageModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+<div class="modal fade" id="insertimageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Trocar foto de perfil</h5>
+            </div>
             <div class="modal-body">
-                <div class="d-flex justify-content-center align-items-center">
-                    <input type="file" name="insert_image" id="insert_image" accept="image/*" />
-                    <div id="image_demo" style="width:350px; margin-top:30px"></div>
-                    <button id="btnEnviar" class="btn btn-success crop_image " style="display: none;">Enviar</button>   
+                <div class="d-flex flex-column">
+                <div class="custom-file">
+                    <input type="file" name="insert_image" id="insert_image" accept="image/*" class="custom-file-input"/>
+                    <label class="custom-file-label" for="insert_image">Escolher foto de perfil</label>
                 </div>
+                    <div id="image_demo" class="container" style="width:350px; margin-top:30px"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                <button id="btnEnviar" class="btn btn-primary crop_image">Trocar</button>
             </div>
         </div>
     </div>

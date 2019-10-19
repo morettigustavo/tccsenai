@@ -2,6 +2,7 @@ let primeiro = $('#primeiro_nome');
 let segundo = $('#segundo_nome');
 let email = $('#email');
 let portifolio = $('#portifolio');
+let img_perfil = $('#img_perfil');
 
 $(function user() {
     let tipo = {
@@ -20,6 +21,9 @@ $(function user() {
             segundo.val(user.segundo_nome);
             email.val(user.email);
             portifolio.val(user.portifolio);
+            if( user.imagem_usuario != null){
+                img_perfil.css("background-image", "url(php/usuarios/"+ user.id_estudante+"/"+ user.imagem_usuario+".png)");   
+            }
         }
     });
 });
@@ -86,24 +90,24 @@ $(document).ready(function () {
             });
         }
         reader.readAsDataURL(this.files[0]);
-        $('#insert_image').css("display", "none");
         $('#btnEnviar').css("display", "block");
     });
-    
+
     $('#btnEnviar').click(function (event) {
         $image_crop.croppie('result', {
             type: 'canvas',
             size: 'viewport'
         }).then(function (response) {
             $.ajax({
-                url: 'insert.php',
+                url: 'php/usuarios.php',
                 type: 'POST',
                 data: {
-                    "image": response
+                    image : response,
+                    tipo : "trocarImagem"
                 },
                 success: function (data) {
                     $('#insertimageModal').modal('hide');
-                    alert(data);
+                    location.reload();
                 }
             })
         });

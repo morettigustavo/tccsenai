@@ -20,6 +20,7 @@ if($line == 0){
     $_SESSION['segundo_nome'] = $line['segundo_nome_usuario'];
     $_SESSION['email'] = $line['email_usuario'];
     $_SESSION['senha'] = $line['senha_usuario'];
+    $_SESSION['imagem'] = $line['imagem_usuario'];
     
     $id = $line['id_estudante'];
     $data = date('Y-m-d');

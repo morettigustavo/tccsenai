@@ -6,6 +6,7 @@ CREATE TABLE  IF NOT EXISTS `usuario` (
   `primeiro_nome_usuario` varchar(64) NOT NULL,
   `segundo_nome_usuario` varchar(64) NOT NULL,
   `portifolio_usuario` varchar(512),
+  `imagem_usuario` varchar(256),
   `email_usuario` varchar(64) NOT NULL,
   `senha_usuario` varchar(64) NOT NULL,
   PRIMARY KEY (`id_estudante`)

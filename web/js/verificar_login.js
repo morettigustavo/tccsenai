@@ -14,14 +14,11 @@ function sair() {
         if (retorno == "false") {
           window.location.href = 'login.html';
         } else {
-          let retornoString = jQuery.parseJSON(retorno);
-          let nome = document.querySelector("#nome");
-          nome.innerHTML = retornoString.nome;
-          // console.log(retorno);
+          let user = JSON.parse(retorno);
+
+          $('#nome').text(user.nome);
+          $('#img_profile').attr('src', "php/usuarios/" + user.id+"/"+user.imagem +".png");
   
-          retornoString.forEach(msg => {
-            nome.innerHTML = msg.nome;
-          });
         }
       }
     });
