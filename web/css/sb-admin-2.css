@@ -577,14 +577,6 @@ pre code {
   margin-left: auto;
 }
 
-.img_perfil{
-  width: 12em;
-  height: 12em;
-  background-position: center; 
-  background-repeat: no-repeat; 
-  background-size: cover;
-}
-
 @media (min-width: 576px) {
   .container {
     max-width: 540px;

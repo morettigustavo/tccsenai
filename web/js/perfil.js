@@ -54,3 +54,13 @@ btnAtualizar.addEventListener("click", function (event) {
         });
     }
 });
+
+$("#img_perfil").hover(function(){
+    $("#camera_perfil").css("display", "block") ;
+}, function(){
+    $("#camera_perfil").css("display", "none") ;
+});
+
+$("#img_perfil").click(function(){
+    alert("oi")
+});

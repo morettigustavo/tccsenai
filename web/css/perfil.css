@@ -1,0 +1,25 @@
+.div_img_perfil{
+  width: 12em;
+  height: 12em;
+}
+
+.img_perfil{
+  width: 12em;
+  height: 12em;
+  position: absolute;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  background-image: url("../img/usuario.png");
+}
+
+.img_perfil:hover{
+  filter: opacity(40%);
+}
+
+
+.camera_perfil{
+  color: black;
+  font-size: 4em;
+  display: none;
+}

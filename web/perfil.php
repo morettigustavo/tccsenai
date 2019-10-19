@@ -36,7 +36,10 @@
                                     <div class="card-body">
                                         <form>
                                             <div class="row">
-                                                <div class="mx-auto img_perfil rounded-circle" style="background-image: url(img/ana.png)"></div>
+                                                <div id="div_img_perfil" class="d-flex mx-auto justify-content-center align-items-center div_img_perfil">
+                                                    <div id="img_perfil" class="img_perfil rounded-circle"></div>
+                                                    <i id="camera_perfil" class="fas fa-camera camera_perfil"></i>
+                                                </div>
                                             </div>
                                             <div class="row mt-4">
                                                 <!-- <div class="mx-auto">

@@ -44,7 +44,7 @@ while($line = mysqli_fetch_array($query)){
             <!--/ dropdown -->
             <div class="media m-0">
                 <div class="d-flex mr-3">
-                    <a href=""><img class="img-fluid rounded-circle" src="img/ana.png" alt="User"></a>
+                    <a href=""><img class="img-fluid rounded-circle" src="img/usuario.png" alt="User"></a>
                 </div>
                 <div class="media-body">
                     <p class="m-0"><?php echo $line['primeiro_nome_usuario']." ". $line['segundo_nome_usuario']?></p>
