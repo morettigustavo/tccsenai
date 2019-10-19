@@ -3,10 +3,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE  IF NOT EXISTS `usuario` (
   `id_estudante` int(11) NOT NULL AUTO_INCREMENT,
-  `primeiro_nome_usuario` varchar(64) ,
+  `primeiro_nome_usuario` varchar(64) NOT NULL,
   `segundo_nome_usuario` varchar(64) NOT NULL,
-  `email_usuario` varchar(64) ,
-  `senha_usuario` varchar(64) ,
+  `portifolio` varchar(512),
+  `email_usuario` varchar(64) NOT NULL,
+  `senha_usuario` varchar(64) NOT NULL,
   PRIMARY KEY (`id_estudante`)
 );
 
@@ -122,4 +123,8 @@ INSERT INTO `materia` (`id_materia`, `nome_materia`, `id_area`) VALUES
 INSERT INTO `usuario` (`id_estudante`, `primeiro_nome_usuario`, `segundo_nome_usuario`, `email_usuario`, `senha_usuario`) VALUES
 (1, 'Alexandre', 'Wesley', 'alexandre@gmail.com', '123'),
 (2, 'Gustavo', 'Moretti', 'moretti@gmail.com', '123');
+
+INSERT INTO `postagem` (`id_postagem`, `id_estudante`, `id_materia`, `titulo_postagem`, `imagem_postagem`) VALUES
+(1, 2, 1, 'Hidrocarbonetos', '8b6757af1b3b52f4e31f31adaedb7234'),
+(2, 2, 1, 'FunÃ§Ãµes da Linguagem', '5740bd58fa7975d5699c0deb53a4bf9c');
 

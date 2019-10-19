@@ -26,3 +26,5 @@ INNER JOIN usuario ON postagem.id_estudante = usuario.id_estudante;
 
 SELECT count(*) FROM curtidas WHERE id_postagem = 1 AND tipo_curtida = 1;
 SELECT count(*) FROM curtidas WHERE id_postagem = 1 AND tipo_curtida = -1;
+
+SELECT * FROM usuario WHERE id_estudante = 1;
