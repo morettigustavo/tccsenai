@@ -10,7 +10,7 @@ $email = isset($_POST['email'])?$_POST['email']:"";
 $portifolio = isset($_POST['portifolio'])?$_POST['portifolio']:"";
 $data = isset($_POST["image"])?$_POST["image"]:"";
 
-$tipo = $_POST['tipo'];
+$tipo = isset($_POST['tipo'])?$_POST['tipo']:"list";
 
 if($tipo == "list"){
     $sql = "SELECT id_estudante,primeiro_nome_usuario, segundo_nome_usuario, portifolio_usuario, email_usuario, imagem_usuario FROM usuario WHERE id_estudante = $id_estudante";
@@ -28,8 +28,7 @@ if($tipo == "list"){
 }else if($tipo == "atualizar"){
     $sql = "UPDATE usuario SET primeiro_nome_usuario = '$primeiro_nome', segundo_nome_usuario = '$segundo_nome', portifolio_usuario = '$portifolio' WHERE id_estudante = $id_estudante";
     $query = mysqli_query($link, $sql);
-}else if($tipo == "trocarImagem"){$data = $_POST["image"];
-    
+}else if($tipo == "trocarImagem"){
     $image_array_1 = explode(";", $data);
 
     $image_array_2 = explode(",", $image_array_1[1]);
@@ -45,6 +44,5 @@ if($tipo == "list"){
     file_put_contents($destino, $data);
     
     $sql = "UPDATE usuario SET imagem_usuario = '$name' WHERE id_estudante = $id_estudante";
-    echo $sql;
     $query = mysqli_query($link, $sql);
 }

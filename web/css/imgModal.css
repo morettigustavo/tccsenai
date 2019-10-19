@@ -2,7 +2,7 @@
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
+    padding-top: 4em;
     left: 0;
     top: 0;
     width: 100%;
@@ -16,7 +16,8 @@
     margin: auto;
     display: block;
     width: 90%;
-    max-width: 1200px;
+    max-width: 70em;
+    max-height: 80%;
 }
 
 .modal-content-img {

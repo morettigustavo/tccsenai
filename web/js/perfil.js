@@ -14,7 +14,6 @@ $(function user() {
         type: "POST",
         data: tipo,
         success: function (retorno) {
-            console.log(retorno);
             let user = JSON.parse(retorno);
 
             primeiro.val(user.primeiro_nome);

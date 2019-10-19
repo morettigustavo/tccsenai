@@ -18,8 +18,7 @@ formPost.addEventListener("submit", function (event) {
         processData: false,
         contentType: false,
         success: function (retorno) {
-            console.log(retorno);
-            console.log("aqui");
+            
         }
     });
 });

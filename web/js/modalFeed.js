@@ -9,8 +9,6 @@ var captionText = document.getElementById("caption");
 // img.onclick;
 
 function img(src) {
-    console.log(src);
-    console.log("img" + src);
     var img = document.getElementById("img" + src);
     modal.style.display = "block";
     modalImg.src = img.src;
@@ -21,6 +19,5 @@ var span = document.getElementById("close");
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function () {
-    console.log("salve");
     modal.style.display = "none";
 }
