@@ -27,4 +27,8 @@ INNER JOIN usuario ON postagem.id_estudante = usuario.id_estudante;
 SELECT count(*) FROM curtidas WHERE id_postagem = 1 AND tipo_curtida = 1;
 SELECT count(*) FROM curtidas WHERE id_postagem = 1 AND tipo_curtida = -1;
 
-SELECT * FROM usuario WHERE id_estudante = 1;
+SELECT id_estudante,primeiro_nome_usuario, segundo_nome_usuario, portifolio_usuario FROM usuario WHERE id_estudante = 1;
+
+SELECT id_estudante,primeiro_nome_usuario, segundo_nome_usuario, portifolio_usuario FROM usuario WHERE id_estudante = 2;
+
+UPDATE usuario SET primeiro_nome_usuario = 'Gustavo', segundo_nome_usuario = 'Moretti', portifolio_usuario = 'Aluno' WHERE id_estudante = 2;

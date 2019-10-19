@@ -41,22 +41,22 @@
                                             <div class="row mt-4">
                                                 <!-- <div class="mx-auto">
                                                 </div> -->
-                                                <div class="col-md-4 font-weight-bold text-center pt-2">100 seguidores</div>
+                                                <div id="seguidores" class="col-md-4 font-weight-bold text-center pt-2">100 seguidores</div>
                                                 <div class="col-md-4 font-weight-bold text-center"><button class="btn btn-success">Publicações</button></div>
-                                                <div class="col-md-4 font-weight-bold text-center pt-2">200 seguindo</div>
+                                                <div id="seguindo" class="col-md-4 font-weight-bold text-center pt-2">200 seguindo</div>
                                             </div>
                                             <hr class="sidebar-divider">
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">Primeiro nome</label>
-                                                        <input type="text" class="form-control" value="Ana">
+                                                        <input type="text" id="primeiro_nome" class="form-control">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">Segundo nome</label>
-                                                        <input type="text" class="form-control" value="Luiza">
+                                                        <input type="text" id="segundo_nome" class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
@@ -64,7 +64,7 @@
                                                 <div class="col-md">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">Endereço de email</label>
-                                                        <input type="email" class="form-control" value="analuiza154@gmail.com">
+                                                        <input type="email" id="email"class="form-control">
                                                     </div>
                                                 </div>
                                             </div>
@@ -73,15 +73,13 @@
                                                     <div class="form-group">
                                                         <label>Portifólio</label>
                                                         <div class="form-group">
-                                                            <textarea class="form-control" rows="5">Sou estudante do ensino médio.
-Faço mapas mentais para ajudar a min e outras pessoas que tenham difuculdades.
+                                                            <textarea class="form-control" rows="5" id="portifolio">
                                                             </textarea>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn btn-primary pull-right">Atualizar
-                                                perfil</button>
+                                            <button id= "btnEnviar" type="button" class="btn btn-primary pull-right">Atualizar perfil</button>
                                             <div class="clearfix"></div>
                                         </form>
                                     </div>
@@ -105,7 +103,7 @@ Faço mapas mentais para ajudar a min e outras pessoas que tenham difuculdades.
 
     
     <?php require_once("geral/js.html");?>
-    
+    <script src="js/perfil.js"></script>
 </body>
 
 </html>
