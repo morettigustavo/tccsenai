@@ -5,7 +5,7 @@ let portifolio = $('#portifolio');
 
 $(function user() {
     let tipo = {
-        tipo : "list"
+        tipo: "list"
     };
 
     jQuery.ajax({
@@ -24,24 +24,24 @@ $(function user() {
     });
 });
 
-let btnAtualizar = document.querySelector('#btnEnviar');
+let btnAtualizar = document.querySelector('#btnAtualizar');
 
 btnAtualizar.addEventListener("click", function (event) {
     event.preventDefault();
 
-    if(primeiro.val() == ""){
+    if (primeiro.val() == "") {
         primeiro.focus();
-    }else if(segundo.val() == ""){
+    } else if (segundo.val() == "") {
         segundo.focus();
-    }else if(email.val() == ""){
+    } else if (email.val() == "") {
         email.focus();
-    }else{
+    } else {
         let usuario = {
-            primeiro_nome : primeiro.val(),
-            segundo_nome : segundo.val(),
-            email : email.val(),
-            portifolio : portifolio.val(),
-            tipo : "atualizar"
+            primeiro_nome: primeiro.val(),
+            segundo_nome: segundo.val(),
+            email: email.val(),
+            portifolio: portifolio.val(),
+            tipo: "atualizar"
         };
 
         jQuery.ajax({
@@ -55,12 +55,57 @@ btnAtualizar.addEventListener("click", function (event) {
     }
 });
 
-$("#img_perfil").hover(function(){
-    $("#camera_perfil").css("display", "block") ;
-}, function(){
-    $("#camera_perfil").css("display", "none") ;
+$("#img_perfil").hover(function () {
+    $("#camera_perfil").css("display", "block");
+}, function () {
+    $("#camera_perfil").css("display", "none");
 });
 
-$("#img_perfil").click(function(){
-    alert("oi")
+$("#img_perfil").click(function () {
+    $('#insertimageModal').modal('show');
+});
+
+$(document).ready(function () {
+    $('#insert_image').on('change', function () {
+        $image_crop = $('#image_demo').croppie({
+            enableExif: true,
+            viewport: {
+                width: 192,
+                height: 192,
+                type: 'circle' //circle
+            },
+            boundary: {
+                width: 200,
+                height: 200
+            }
+        });
+        var reader = new FileReader();
+        reader.onload = function (event) {
+            $image_crop.croppie('bind', {
+                url: event.target.result
+            });
+        }
+        reader.readAsDataURL(this.files[0]);
+        $('#insert_image').css("display", "none");
+        $('#btnEnviar').css("display", "block");
+    });
+    
+    $('#btnEnviar').click(function (event) {
+        $image_crop.croppie('result', {
+            type: 'canvas',
+            size: 'viewport'
+        }).then(function (response) {
+            $.ajax({
+                url: 'insert.php',
+                type: 'POST',
+                data: {
+                    "image": response
+                },
+                success: function (data) {
+                    $('#insertimageModal').modal('hide');
+                    alert(data);
+                }
+            })
+        });
+    });
 });

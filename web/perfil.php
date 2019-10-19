@@ -7,6 +7,7 @@
 
     <!-- Perfil css -->
     <link href="css/perfil.css" rel="stylesheet">
+    <link href="css/croppie.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -82,7 +83,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button id= "btnEnviar" type="button" class="btn btn-primary pull-right">Atualizar perfil</button>
+                                            <button id= "btnAtualizar" type="button" class="btn btn-primary pull-right">Atualizar perfil</button>
                                             <div class="clearfix"></div>
                                         </form>
                                     </div>
@@ -107,6 +108,21 @@
     
     <?php require_once("geral/js.html");?>
     <script src="js/perfil.js"></script>
+    <script src="vendor/croppie.js"></script>
 </body>
 
 </html>
+
+<div id="insertimageModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="d-flex justify-content-center align-items-center">
+                    <input type="file" name="insert_image" id="insert_image" accept="image/*" />
+                    <div id="image_demo" style="width:350px; margin-top:30px"></div>
+                    <button id="btnEnviar" class="btn btn-success crop_image " style="display: none;">Enviar</button>   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
