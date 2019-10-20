@@ -32,3 +32,19 @@ SELECT id_estudante,primeiro_nome_usuario, segundo_nome_usuario, portifolio_usua
 SELECT id_estudante,primeiro_nome_usuario, segundo_nome_usuario, portifolio_usuario FROM usuario WHERE id_estudante = 2;
 
 UPDATE usuario SET primeiro_nome_usuario = 'Gustavo', segundo_nome_usuario = 'Moretti', portifolio_usuario = 'Aluno' WHERE id_estudante = 2;
+
+UPDATE usuario SET primeiro_nome_usuario = 'joao', segundo_nome_usuario = 'paulo', portifolio_usuario = 'OI sabonetelã' WHERE id_estudante = 3;
+
+INSERT INTO seguidor(seguidor, seguido) VALUES (1,2);
+
+SELECT * FROM seguidor;
+
+DELETE FROM seguidor WHERE seguidor = 1 AND seguido = 2;
+
+SELECT * FROM seguidor WHERE seguidor = 1 AND seguido = 2;
+
+SELECT * FROM seguidor WHERE seguidor = 1;
+
+SELECT count(*) FROM seguidor WHERE seguido = 2;
+
+SELECT * FROM seguidor WHERE seguidor = 1 AND seguido = 2

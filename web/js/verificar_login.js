@@ -19,7 +19,9 @@ $(function () {
           success: function (retorno) {
             let user = JSON.parse(retorno);
             $('#nome').text(user.primeiro_nome+" "+user.segundo_nome);
-            $('#img_profile').attr('src', "php/usuarios/" + user.id_estudante + "/" + user.imagem_usuario + ".png");
+            if(user.imagem_usuario != null){
+              $('#img_profile').attr('src', "php/usuarios/" + user.id_estudante + "/" + user.imagem_usuario + ".png");
+            }
           }
         });
       }

@@ -2,7 +2,9 @@
 session_start();
 require_once('conexao.php');
 
-$id_estudante = $_SESSION['id_estudante'];
+$id_estudante = isset($_POST['id_estudante'])?$_POST['id_estudante']:$_SESSION['id_estudante'];
+
+$id_estudante_seguidor = $_SESSION['id_estudante'];
 
 $primeiro_nome = isset($_POST['primeiro_nome'])?$_POST['primeiro_nome']:"";
 $segundo_nome = isset($_POST['segundo_nome'])?$_POST['segundo_nome']:"";
@@ -15,13 +17,14 @@ $tipo = isset($_POST['tipo'])?$_POST['tipo']:"list";
 if($tipo == "list"){
     $sql = "SELECT id_estudante,primeiro_nome_usuario, segundo_nome_usuario, portifolio_usuario, email_usuario, imagem_usuario FROM usuario WHERE id_estudante = $id_estudante";
     
+    $seguindo = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM seguidor WHERE seguidor = $id_estudante_seguidor AND seguido = $id_estudante"))['count(*)'];
+    $qnt_seguindo = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM seguidor WHERE seguidor = $id_estudante_seguidor"))['count(*)'];
+    $qnt_seguidores = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM seguidor WHERE seguido = $id_estudante_seguidor"))['count(*)'];
+
     $query = mysqli_query($link, $sql);
     
     while($line = mysqli_fetch_array($query)){
-        $line['primeiro_nome_usuario'] = utf8_encode($line['primeiro_nome_usuario']);
-        $line['segundo_nome_usuario'] = utf8_encode($line['segundo_nome_usuario']);
-        $line['portifolio_usuario'] = utf8_encode($line['portifolio_usuario']);
-        $array = array('id_estudante'=> $line['id_estudante'], 'primeiro_nome' => $line['primeiro_nome_usuario'],'segundo_nome' => $line['segundo_nome_usuario'], 'portifolio' => $line['portifolio_usuario'], 'email' => $line['email_usuario'], 'imagem_usuario' => $line['imagem_usuario']);
+        $array = array('id_estudante'=> $line['id_estudante'], 'primeiro_nome' => $line['primeiro_nome_usuario'],'segundo_nome' => $line['segundo_nome_usuario'], 'portifolio' => $line['portifolio_usuario'], 'email' => $line['email_usuario'], 'imagem_usuario' => $line['imagem_usuario'], 'seguindo' => $seguindo , 'id_user_logado' => $id_estudante_seguidor, 'qnt_seguindo' => $qnt_seguindo,'qnt_seguidores' => $qnt_seguidores);
     }
     
     echo json_encode($array);

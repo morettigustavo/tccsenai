@@ -39,7 +39,6 @@ if($acao == "comentarios"){
     $array = array();
 
     while($line = mysqli_fetch_array($query)){
-        $line['comentario']= utf8_encode($line['comentario']);
         $array[] = array('id_estudante' => $line['id_estudante'], 'id_postagem' => $line['id_postagem'], 'texto_comentario'=> $line['texto_comentario'], 'data_comentario' => $line['data_comentario'], 'hora_comentario'=> $line['hora_comentario'], 'primeiro_nome_usuario' => $line['primeiro_nome_usuario'], 'segundo_nome_usuario' => $line['segundo_nome_usuario']);
     }
     echo json_encode($array);

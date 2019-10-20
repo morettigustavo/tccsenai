@@ -5,7 +5,7 @@ $sql = "SELECT
 postagem.id_postagem, postagem.titulo_postagem, postagem.imagem_postagem,
 materia.nome_materia,
 area.nome_area,
-usuario.primeiro_nome_usuario,usuario.segundo_nome_usuario, imagem_usuario
+usuario.primeiro_nome_usuario,usuario.segundo_nome_usuario, imagem_usuario,usuario.id_estudante
 FROM postagem
 INNER JOIN materia ON postagem.id_materia = materia.id_materia
 INNER JOIN area ON materia.id_area = area.id_area
@@ -18,7 +18,7 @@ $query = mysqli_query($link, $sql);
 $array = array();
 while($line = mysqli_fetch_array($query)){
     $id_postagem = $line['id_postagem'];
-    $id_estudante = $_SESSION['id_estudante'];
+    $id_estudante = $line['id_estudante'];
     $caminho = isset($line['imagem_usuario'])?"php/usuarios/".$id_estudante."/".$line['imagem_usuario'].".png":"img/usuario.png";
 
     $qnt_pos = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM curtidas WHERE id_postagem = $id_postagem AND tipo_curtida = 1"))['count(*)'];
@@ -45,7 +45,7 @@ while($line = mysqli_fetch_array($query)){
             <!--/ dropdown -->
             <div class="media m-0">
                 <div class="d-flex mr-3">
-                    <a href=""><img class="img-fluid rounded-circle" src="<?php echo $caminho;?>" alt="User"></a>
+                    <a href="visitar_perfil.php?id_estudante=<?php echo $id_estudante?>"><img class="img-fluid rounded-circle" src="<?php echo $caminho;?>" alt="User"></a>
                 </div>
                 <div class="media-body">
                     <p class="m-0"><?php echo $line['primeiro_nome_usuario']." ". $line['segundo_nome_usuario']?></p>

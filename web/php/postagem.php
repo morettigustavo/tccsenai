@@ -18,11 +18,6 @@ $query = mysqli_query($link, $sql);
 $array = array();
 while($line = mysqli_fetch_array($query)){
     $id_postagem = $line['id_postagem'];
-    $line['titulo_postagem']= utf8_encode($line['titulo_postagem']);
-    $line['nome_materia']= utf8_encode($line['nome_materia']);
-    $line['nome_area']= utf8_encode($line['nome_area']);
-    $line['primeiro_nome_usuario']= utf8_encode($line['primeiro_nome_usuario']);
-    $line['segundo_nome_usuario']= utf8_encode($line['segundo_nome_usuario']);
     $line['imagem_postagem']= $line['imagem_postagem'];
 
     $qnt_pos = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM curtidas WHERE id_postagem = $id_postagem AND tipo_curtida = 1"))['count(*)'];
