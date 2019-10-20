@@ -12,7 +12,7 @@ INNER JOIN postagem ON seguidor.seguido = postagem.id_estudante
 INNER JOIN materia ON postagem.id_materia = materia.id_materia
 INNER JOIN area ON materia.id_area = area.id_area
 INNER JOIN usuario ON postagem.id_estudante = usuario.id_estudante 
-WHERE seguidor = 1 OR usuario.id_estudante= 1 ORDER BY id_postagem DESC";
+WHERE seguidor = $id_estudante OR usuario.id_estudante= $id_estudante ORDER BY id_postagem DESC";
 
 $query = mysqli_query($link, $sql);
 //JSON de retorno da postagem(Postagem em forma de um json facilita para o front end transformar em dados na tela)

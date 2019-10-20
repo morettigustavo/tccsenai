@@ -4,6 +4,8 @@
 <head>
     <title>Publicar</title>
     <?php require_once("geral/cabecalho.html");?>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+
 </head>
 
 <body id="page-top">
@@ -49,6 +51,14 @@
                                                 </div>
                                             </div>
                                             <div class="row">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating" for="tags">Tags</label>
+                                                        <input type="text" class="form-control" id="tags" name="tags">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">Área do conhecimento</label>
@@ -63,15 +73,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating" for="materia">Matéria</label>
-                                                        <input type="text" class="form-control" id="materia" name="materia">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="form-group">
-                                                        <label class="bmd-label-floating" for="tags">Tags</label>
-                                                        <input type="text" class="form-control" id="tags" name="tags">
+                                                        <input type="text" class="form-control auto_complete" id="materia" name="materia">
                                                     </div>
                                                 </div>
                                             </div>
@@ -101,6 +103,40 @@
 
     <?php require_once("geral/js.html");?>
     <script src="js/publicar.js"></script>
+    <script src="vendor/jquery-ui.js"></script>
+<script>
+$( function() {
+    var availableTags = [
+    "ActionScript",
+    "AppleScript",
+    "Asp",
+    "BASIC",
+    "C",
+    "C++",
+    "Clojure",
+    "COBOL",
+    "ColdFusion",
+    "Erlang",
+    "Fortran",
+    "Groovy",
+    "Haskell",
+    "Java",
+    "JavaScript",
+    "Lisp",
+    "Perl",
+    "PHP",
+    "Python",
+    "Ruby",
+    "Scala",
+    "Scheme"
+    ];
+    $( "#materia" ).autocomplete({
+        source: function(request, response){
+            return availableTags;
+        }
+    });
+});
+</script>
 </body>
 
 </html>

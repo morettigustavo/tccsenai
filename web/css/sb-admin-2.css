@@ -85,6 +85,12 @@ body {
   color: rgb(0, 0, 255)!important;
 }
 
+.auto_complete {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 [tabindex="-1"]:focus {
   outline: 0 !important;
 }
