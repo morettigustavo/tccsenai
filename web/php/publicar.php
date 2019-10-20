@@ -10,7 +10,7 @@ $tags = $_POST['tags'];
 $id_user = $_SESSION['id_estudante'];
 $nome = md5($_FILES['map']['name']);
 
-$sql = "INSERT INTO postagem(id_estudante,id_materia,titulo_postagem,imagem_postagem) VALUES ($id_user,1,'$titulo','$nome')";
+$sql = "INSERT INTO postagem(id_estudante,id_materia,titulo_postagem,imagem_postagem) VALUES ($id_user,2,'$titulo','$nome')";
 mysqli_query($link, $sql);
 
 $sql = "SELECT id_postagem FROM postagem ORDER BY id_postagem DESC LIMIT 1;";

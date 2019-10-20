@@ -45,6 +45,52 @@ SELECT * FROM seguidor WHERE seguidor = 1 AND seguido = 2;
 
 SELECT * FROM seguidor WHERE seguidor = 1;
 
-SELECT count(*) FROM seguidor WHERE seguido = 2;
+SELECT * FROM seguidor WHERE seguidor = 2;
 
-SELECT * FROM seguidor WHERE seguidor = 1 AND seguido = 2
+SELECT * FROM seguidor WHERE seguidor = 1 AND seguido = 2;
+
+
+SELECT 
+postagem.id_postagem, postagem.titulo_postagem, postagem.imagem_postagem,
+materia.nome_materia,
+area.nome_area,
+usuario.primeiro_nome_usuario,usuario.segundo_nome_usuario
+FROM postagem
+INNER JOIN materia ON postagem.id_materia = materia.id_materia
+INNER JOIN area ON materia.id_area = area.id_area
+INNER JOIN usuario ON postagem.id_estudante = usuario.id_estudante;
+
+SELECT 
+usuario.id_estudante,usuario.primeiro_nome_usuario,usuario.segundo_nome_usuario, imagem_usuario,
+postagem.id_postagem, postagem.titulo_postagem, postagem.imagem_postagem,
+materia.nome_materia,
+area.nome_area
+FROM seguidor 
+INNER JOIN postagem ON seguidor.seguido = postagem.id_estudante
+INNER JOIN materia ON postagem.id_materia = materia.id_materia
+INNER JOIN area ON materia.id_area = area.id_area
+INNER JOIN usuario ON postagem.id_estudante = usuario.id_estudante 
+WHERE seguidor = 1 ;
+
+SELECT 
+usuario.id_estudante,usuario.primeiro_nome_usuario,usuario.segundo_nome_usuario, usuario.imagem_usuario,
+postagem.id_postagem, postagem.titulo_postagem, postagem.imagem_postagem,
+materia.nome_materia,
+area.nome_area
+FROM postagem 
+INNER JOIN materia ON postagem.id_materia = materia.id_materia
+INNER JOIN area ON materia.id_area = area.id_area
+INNER JOIN usuario ON postagem.id_estudante = usuario.id_estudante 
+WHERE materia.nome_materia LIKE 'B%';
+
+SELECT 
+usuario.id_estudante,usuario.primeiro_nome_usuario,usuario.segundo_nome_usuario, usuario.imagem_usuario,
+postagem.id_postagem, postagem.titulo_postagem, postagem.imagem_postagem,
+materia.nome_materia,
+area.nome_area
+FROM seguidor 
+INNER JOIN postagem ON seguidor.seguido = postagem.id_estudante
+INNER JOIN materia ON postagem.id_materia = materia.id_materia
+INNER JOIN area ON materia.id_area = area.id_area
+INNER JOIN usuario ON postagem.id_estudante = usuario.id_estudante 
+WHERE seguidor = 1 OR usuario.id_estudante= 1 ORDER BY id_postagem;
