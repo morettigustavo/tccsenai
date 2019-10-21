@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -48,8 +49,7 @@
             <span class="pmd-floating-hidden">Primary</span>
             <i class="material-icons pmd-sm">create</i>
         </a>
-    </div>    
-    <div></div>
+    </div>
 
     <?php require_once("geral/js.html");?>
     <script src="js/modalFeed.js"></script>

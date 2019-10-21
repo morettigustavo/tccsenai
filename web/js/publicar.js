@@ -26,8 +26,10 @@ formPost.addEventListener("submit", function (event) {
 $("input[type=file]").on("change", function(){
     var files = !!this.files ? this.files : [];
     if (!files.length || !window.FileReader) return;
-
-    if (/^image/.test( files[0].type)){
+    if(this.files[0].size > 2097152){
+        alert("Esta imagem é muito pesada, escolha outra");
+        this.value = "";
+    }else if (/^image/.test( files[0].type)){
         var reader = new FileReader();
         reader.readAsDataURL(files[0]);
 

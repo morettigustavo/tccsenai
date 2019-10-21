@@ -3,6 +3,8 @@ let segundo = $('#segundo_nome');
 let email = $('#email');
 let portifolio = $('#portifolio');
 let img_perfil = $('#img_perfil');
+let seguindo = $('#seguindo');
+let seguidores = $('#seguidores');
 
 $(function user() {
     let tipo = {
@@ -20,6 +22,8 @@ $(function user() {
             segundo.val(user.segundo_nome);
             email.val(user.email);
             portifolio.val(user.portifolio);
+            seguindo.text(user.qnt_seguindo + " seguindo");
+            seguidores.text(user.qnt_seguidores + " seguidores");
             if( user.imagem_usuario != null){
                 img_perfil.css("background-image", "url(php/usuarios/"+ user.id_estudante+"/"+ user.imagem_usuario+".png)");   
             }

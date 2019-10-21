@@ -94,3 +94,34 @@ INNER JOIN materia ON postagem.id_materia = materia.id_materia
 INNER JOIN area ON materia.id_area = area.id_area
 INNER JOIN usuario ON postagem.id_estudante = usuario.id_estudante 
 WHERE seguidor = 1 OR usuario.id_estudante= 1 ORDER BY id_postagem;
+
+SELECT 
+usuario.id_estudante,usuario.primeiro_nome_usuario,usuario.segundo_nome_usuario, usuario.imagem_usuario,
+postagem.id_postagem, postagem.titulo_postagem, postagem.imagem_postagem,
+materia.nome_materia,
+area.nome_area
+FROM seguidor 
+INNER JOIN postagem ON seguidor.seguido = postagem.id_estudante
+INNER JOIN materia ON postagem.id_materia = materia.id_materia
+INNER JOIN area ON materia.id_area = area.id_area
+INNER JOIN usuario ON postagem.id_estudante = usuario.id_estudante 
+WHERE seguidor.seguidor = 1
+UNION
+SELECT 
+usuario.id_estudante,usuario.primeiro_nome_usuario,usuario.segundo_nome_usuario, usuario.imagem_usuario,
+postagem.id_postagem, postagem.titulo_postagem, postagem.imagem_postagem,
+materia.nome_materia,
+area.nome_area
+FROM postagem 
+INNER JOIN materia ON postagem.id_materia = materia.id_materia
+INNER JOIN area ON materia.id_area = area.id_area
+INNER JOIN usuario ON postagem.id_estudante = usuario.id_estudante 
+WHERE postagem.id_estudante = 1;
+
+select * from postagem;
+
+SELECT count(*) FROM seguidor WHERE seguidor = 2;
+
+SELECT count(*) FROM seguidor WHERE seguido = 2;
+
+SELECT * FROM seguidor WHERE seguido = 1;

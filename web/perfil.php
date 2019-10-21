@@ -45,9 +45,9 @@
                                             <div class="row mt-4">
                                                 <!-- <div class="mx-auto">
                                                 </div> -->
-                                                <div id="seguidores" class="col-md-4 font-weight-bold text-center pt-2">100 seguidores</div>
+                                                <div id="seguidores" class="col-md-4 font-weight-bold text-center pt-2"></div>
                                                 <div class="col-md-4 font-weight-bold text-center"><button class="btn btn-success">Publicações</button></div>
-                                                <div id="seguindo" class="col-md-4 font-weight-bold text-center pt-2">200 seguindo</div>
+                                                <div id="seguindo" class="col-md-4 font-weight-bold text-center pt-2"></div>
                                             </div>
                                             <hr class="sidebar-divider">
                                             <div class="row">

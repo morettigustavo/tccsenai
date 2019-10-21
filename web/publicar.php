@@ -51,14 +51,6 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col">
-                                                    <div class="form-group">
-                                                        <label class="bmd-label-floating" for="tags">Tags</label>
-                                                        <input type="text" class="form-control" id="tags" name="tags">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating">Área do conhecimento</label>
@@ -74,6 +66,14 @@
                                                     <div class="form-group">
                                                         <label class="bmd-label-floating" for="materia">Matéria</label>
                                                         <input type="text" class="form-control auto_complete" id="materia" name="materia">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating" for="tags">Tags</label>
+                                                        <input type="text" class="form-control" id="tags" name="tags">
                                                     </div>
                                                 </div>
                                             </div>
@@ -131,9 +131,7 @@ $( function() {
     "Scheme"
     ];
     $( "#materia" ).autocomplete({
-        source: function(request, response){
-            return availableTags;
-        }
+        source: availableTags
     });
 });
 </script>
