@@ -129,3 +129,4 @@ INSERT INTO `postagem` (`id_postagem`, `id_estudante`, `id_materia`, `titulo_pos
 (1, 2, 1, 'Hidrocarbonetos', '8b6757af1b3b52f4e31f31adaedb7234'),
 (2, 2, 1, 'FunÃ§Ãµes da Linguagem', '5740bd58fa7975d5699c0deb53a4bf9c');
 
+SELECT * FROM materia;

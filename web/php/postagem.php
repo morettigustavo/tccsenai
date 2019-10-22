@@ -1,6 +1,5 @@
-<?php 
-session_start();
-require_once('conexao.php');
+<?php
+require_once('php/conexao.php');
 $id_estudante = $_SESSION['id_estudante'];
 
 $sql = "SELECT 
@@ -13,22 +12,32 @@ INNER JOIN postagem ON seguidor.seguido = postagem.id_estudante
 INNER JOIN materia ON postagem.id_materia = materia.id_materia
 INNER JOIN area ON materia.id_area = area.id_area
 INNER JOIN usuario ON postagem.id_estudante = usuario.id_estudante 
-WHERE seguidor = $id_estudante";
+WHERE seguidor.seguidor = $id_estudante
+UNION
+SELECT 
+usuario.id_estudante,usuario.primeiro_nome_usuario,usuario.segundo_nome_usuario, usuario.imagem_usuario,
+postagem.id_postagem, postagem.titulo_postagem, postagem.imagem_postagem,
+materia.nome_materia,
+area.nome_area
+FROM postagem 
+INNER JOIN materia ON postagem.id_materia = materia.id_materia
+INNER JOIN area ON materia.id_area = area.id_area
+INNER JOIN usuario ON postagem.id_estudante = usuario.id_estudante 
+WHERE postagem.id_estudante = $id_estudante ORDER BY id_postagem DESC";
 
 $query = mysqli_query($link, $sql);
-
 //JSON de retorno da postagem(Postagem em forma de um json facilita para o front end transformar em dados na tela)
 
 while($line = mysqli_fetch_array($query)){
     $id_postagem = $line['id_postagem'];
-    $id_estudante = $line['id_estudante'];
-    $caminho = isset($line['imagem_usuario'])?"php/usuarios/".$id_estudante."/".$line['imagem_usuario'].".png":"img/usuario.png";
+    $id_estudante_post = $line['id_estudante'];
 
-    $qnt_pos =    mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM curtidas    WHERE id_postagem = $id_postagem AND tipo_curtida = 1"))['count(*)'];
-    $qnt_neg =    mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM curtidas    WHERE id_postagem = $id_postagem AND tipo_curtida = -1"))['count(*)'];
-    $qnt_com =    mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM comentarios WHERE id_postagem = $id_postagem"))['count(*)'];
-    $is_liked =   mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM curtidas    WHERE id_postagem = $id_postagem AND tipo_curtida = 1 AND id_estudante = $id_estudante;"))['count(*)'];
-    $is_unliked = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM curtidas    WHERE id_postagem = $id_postagem AND tipo_curtida = -1 AND id_estudante = $id_estudante;"))['count(*)'];
+    $caminho = isset($line['imagem_usuario'])?"php/usuarios/".$id_estudante_post."/".$line['imagem_usuario'].".png":"img/usuario.png";
+    $qnt_pos = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM curtidas WHERE id_postagem = $id_postagem AND tipo_curtida = 1"))['count(*)'];
+    $qnt_neg = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM curtidas WHERE id_postagem = $id_postagem AND tipo_curtida = -1"))['count(*)'];
+    $qnt_com = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM comentarios WHERE id_postagem = $id_postagem"))['count(*)'];
+    $is_liked = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM curtidas WHERE id_postagem = $id_postagem AND tipo_curtida = 1 AND id_estudante = $id_estudante;"))['count(*)'];
+    $is_unliked = mysqli_fetch_array(mysqli_query($link, "SELECT count(*) FROM curtidas WHERE id_postagem = $id_postagem AND tipo_curtida = -1 AND id_estudante = $id_estudante;"))['count(*)'];
     ?>
 
 <section class="hero">
@@ -48,7 +57,7 @@ while($line = mysqli_fetch_array($query)){
             <!--/ dropdown -->
             <div class="media m-0">
                 <div class="d-flex mr-3">
-                    <a href="visitar_perfil.php?id_estudante=<?php echo $id_estudante?>"><img class="img-fluid rounded-circle" src="<?php echo $caminho;?>" alt="User"></a>
+                    <a href="visitar_perfil.php?id_estudante=<?php echo $id_estudante_post?>"><img class="img-fluid rounded-circle" src="<?php echo $caminho;?>" alt="User"></a>
                 </div>
                 <div class="media-body">
                     <p class="m-0"><?php echo $line['primeiro_nome_usuario']." ". $line['segundo_nome_usuario']?></p>

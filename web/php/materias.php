@@ -1,18 +1,24 @@
 <?php 
 require_once('conexao.php');
 
-$acao = $_GET['acao'];
-$materia = isset($_GET['materia'])?$_GET['materia']:"";
-$id_area = isset($_GET['id_area'])?$_GET['id_area']:0;
+$acao = $_POST['acao'];
+$materia = isset($_POST['materia'])?$_POST['materia']:"";
+@$id_area = $_POST['id_area'];
+$sql = "";
 
 switch($acao){
     case "adicionar":
         $sql = "INSERT INTO materia(nome_materia,id_area) VALUES ($materia, $id_area)";
     break;
     case "materias":
-        $sql = "SELECT * FROM materia WHERE upper(nome_materia) like '%$materia%'";
+        $sql = "SELECT * FROM materia";
+        if(isset($id_area)){
+            $sql .= " WHERE id_area = $id_area";
+        }
     break;
 }
+
+// echo $sql;
 
 $query = mysqli_query($link, $sql);
 

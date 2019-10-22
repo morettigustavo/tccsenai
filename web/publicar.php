@@ -102,39 +102,8 @@
     <!-- End of Page Wrapper -->
 
     <?php require_once("geral/js.html");?>
-    <script src="js/publicar.js"></script>
     <script src="vendor/jquery-ui.js"></script>
-<script>
-$( function() {
-    var availableTags = [
-    "ActionScript",
-    "AppleScript",
-    "Asp",
-    "BASIC",
-    "C",
-    "C++",
-    "Clojure",
-    "COBOL",
-    "ColdFusion",
-    "Erlang",
-    "Fortran",
-    "Groovy",
-    "Haskell",
-    "Java",
-    "JavaScript",
-    "Lisp",
-    "Perl",
-    "PHP",
-    "Python",
-    "Ruby",
-    "Scala",
-    "Scheme"
-    ];
-    $( "#materia" ).autocomplete({
-        source: availableTags
-    });
-});
-</script>
+    <script src="js/publicar.js"></script>
 </body>
 
 </html>
