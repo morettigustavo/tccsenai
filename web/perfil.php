@@ -32,7 +32,8 @@
                             <div class="col-md-8">
                                 <div class="card">
                                     <div class="card-header card-header-primary">
-                                        <p class="card-category h1">Perfil</p>
+                                        <i class="fas fa-undo" style="font-size: 1.5em"></i>
+                                        <p class="card-category h1" style="display: inline;font-size: 1.5em;">Perfil</p>
                                     </div>
                                     <div class="card-body">
                                         <form>

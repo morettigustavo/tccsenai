@@ -18,7 +18,7 @@ formPost.addEventListener("submit", function (event) {
         processData: false,
         contentType: false,
         success: function (retorno) {
-            
+           $(location).attr('href', 'index.php');
         }
     });
 });
@@ -27,7 +27,7 @@ $("input[type=file]").on("change", function () {
     var files = !!this.files ? this.files : [];
     if (!files.length || !window.FileReader) return;
     if (this.files[0].size > 2097152) {
-        alert("Esta imagem é muito pesada, escolha outra");
+        alert("Esta imagem é muito pesada, escolha outra, igual a sua mãe");
         this.value = "";
     } else if (/^image/.test(files[0].type)) {
         var reader = new FileReader();

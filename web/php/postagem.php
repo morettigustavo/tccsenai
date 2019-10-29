@@ -52,6 +52,12 @@ while($line = mysqli_fetch_array($query)){
                     style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
                     <a class="dropdown-item" href="#">Salvar</a>
                     <a class="dropdown-item" href="#">Denunciar</a>
+                    <?php if($id_estudante == $id_estudante_post){
+ ?>
+                    <a class="dropdown-item" href="#">Apagar postagem</a>
+<?php
+                    }
+                    ?>
                 </div>
             </div>
             <!--/ dropdown -->
