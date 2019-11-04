@@ -1,0 +1,50 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
+
+.instagram {
+    max-width: 90%!important; 
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.image {
+    width: 25em;
+    height: 25em;
+    margin: 4px;
+    overflow: hidden;
+    transition: all 200ms ease;
+    position: relative;
+    
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.image:hover {
+    background-size: 110%;
+}
+
+@media (max-width: 1079px){
+    .image{
+        height: 18em;
+    }
+}
+
+@media (max-width: 450px){
+    .image{
+        height: 15em;
+    }
+}
+
+@media (max-width: 320px){
+    .image{
+        height: 10em;
+    }
+}
