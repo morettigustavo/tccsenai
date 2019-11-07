@@ -46,7 +46,7 @@
                                                 </div> -->
                                                 <div id="seguidores" class="col-md-4 font-weight-bold text-center pt-2"><label></label></div>
                                                 <div class="d-flex flex-column col-md-4">
-                                                    <div class=" font-weight-bold text-center"><button class="btn btn-success">Publicações</button></div>
+                                                    <div class=" font-weight-bold text-center"><button id="btnPubli"class="btn btn-success">Publicações</button></div>
                                                     <div class="font-weight-bold text-center mt-2"><button id="btnSeguir" class="btn"></button></div>
                                                 </div>
                                                 <div id="seguindo" class="col-md-4 font-weight-bold text-center pt-2"></div>

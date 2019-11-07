@@ -74,3 +74,8 @@ $('#btnSeguir').click(function (event) {
         }
     });
 });
+
+$('#btnPubli').click(function (event) {
+    event.preventDefault();
+    $(location).attr('href','fotos.php?id_estudante=1');
+});
