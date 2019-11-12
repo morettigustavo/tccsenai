@@ -18,7 +18,8 @@ formPost.addEventListener("submit", function (event) {
         processData: false,
         contentType: false,
         success: function (retorno) {
-           $(location).attr('href', 'index.php');
+            console.log(retorno)
+        //    $(location).attr('href', 'index.php');
         }
     });
 });
@@ -72,7 +73,7 @@ function materias() {
             let objMateria = JSON.parse(retorno);
             
             $.each(objMateria, function (i, item) {
-                console.log(item.nome_materia);
+                // console.log(item.nome_materia);
                 availableMaterias[i] = item.nome_materia;
             });
         }

@@ -89,12 +89,10 @@
                     <!-- Content -->
                 </div>
                 <!-- End of Main Content -->
-
+                </div>
                 <!-- Footer -->
-                <?php require_once("geral/rodape.html");?>
+                    <?php require_once("geral/rodape.html");?>
                 <!-- End of Footer -->
-
-            </div>
             <!-- End of Content Wrapper -->
 
         </div>
@@ -104,6 +102,7 @@
     <?php require_once("geral/js.html");?>
     <script src="vendor/jquery-ui.js"></script>
     <script src="js/publicar.js"></script>
+
 </body>
 
 </html>

@@ -125,3 +125,18 @@ SELECT count(*) FROM seguidor WHERE seguidor = 2;
 SELECT count(*) FROM seguidor WHERE seguido = 2;
 
 SELECT * FROM seguidor WHERE seguido = 1;
+
+SELECT count(*) FROM materia WHERE nome_materia LIKE "%po%" AND id_area = 2;
+
+SELECT id_materia FROM materia WHERE nome_materia LIKE '%Sociologia%' AND id_area = 1;
+
+INSERT INTO materia (id_area, nome_materia) VALUES (4, "Matemática");
+INSERT INTO materia (id_area, nome_materia) VALUES (4, "Informática");
+
+SELECT id_tag FROM tag WHERE nome_tag LIKE '%%';
+
+INSERT INTO tag_post (id_postagem, id_tag) VALUES;
+
+SELECT count(*) FROM tag WHERE nome_tag LIKE '%hidrocarbonetos%';
+SELECT count(*) FROM tag WHERE nome_tag LIKE '%quimicaorganica%';
+SELECT count(*) FROM tag WHERE nome_tag LIKE '%quimica%';
