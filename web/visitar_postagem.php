@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <title>Feed</title>
     <?php require_once("geral/cabecalho.html"); session_start();?>
-    <link href="css/publis.css" rel="stylesheet">
+    <link href="css/publi.css" rel="stylesheet">
     <link href="css/imgModal.css" rel="stylesheet">
 </head>
 
@@ -21,7 +22,7 @@
                 <?php require_once("geral/top-bar.html");?>
 
                 <div class="container">
-                <?php require_once("php/postagens.php");?>
+                <?php require_once("php/postagem_unica.php");?>
                 </div>
                 
             </div>

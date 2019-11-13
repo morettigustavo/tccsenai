@@ -140,3 +140,7 @@ SELECT count(*) FROM tag WHERE nome_tag LIKE '%quimicaorganica%';
 SELECT count(*) FROM tag WHERE nome_tag LIKE '%quimica%';
 
 SELECT postagem.id_postagem, postagem.imagem_postagem FROM postagem WHERE id_estudante = 2;
+
+SELECT nome_tag FROM tag_post 
+INNER JOIN tag ON tag_post.id_tag = tag.id_tag
+WHERE id_postagem = 5;

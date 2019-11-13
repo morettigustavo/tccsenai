@@ -11,7 +11,7 @@ while($line = mysqli_fetch_array($query)){
     $imagem = $line['imagem_postagem'];
 ?>
     
-    <a class="image" style="background-image: url(php/postagens/<?php echo "$id_postagem/$imagem.png"?>)"></a>
+    <a class="image" style="background-image: url(php/postagens/<?php echo "$id_postagem/$imagem.png"?>)" href="visitar_postagem.php?id_postagem=<?php echo $id_postagem;?>"></a>
                         
 <?php } ?>
 </div>
