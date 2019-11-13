@@ -31,7 +31,7 @@
                             <div class="col-md-8">
                                 <div class="card">
                                     <div class="card-header card-header-primary">
-                                        <i class="fas fa-undo" style="font-size: 1.5em"></i>
+                                        <a href="javascript:history.back()"><i class="fas fa-undo" style="font-size: 1.5em"></i></a>
                                         <p class="card-category h1" style="display: inline;font-size: 1.5em;">Perfil</p>
                                     </div>
                                     <div class="card-body">
