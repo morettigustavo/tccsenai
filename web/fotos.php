@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -25,27 +26,7 @@
             <?php require_once("geral/top-bar.html");?>
 
                 <div class="content">
-                <?php require_once("php/postagens.php");?>
-                    <div class="container instagram" data-limit="12">
-                        <a class="image" style="background-image: url(php/postagens/1/8b6757af1b3b52f4e31f31adaedb7234.png)"></a>
-                        <a class="image" style="background-image: url(php/postagens/2/5740bd58fa7975d5699c0deb53a4bf9c.png)"></a>
-                        <a class="image" style="background-image: url(php/postagens/1/8b6757af1b3b52f4e31f31adaedb7234.png)"></a>
-                        <a class="image" style="background-image: url(php/postagens/2/5740bd58fa7975d5699c0deb53a4bf9c.png)"></a>
-                        <a class="image" style="background-image: url(php/postagens/1/8b6757af1b3b52f4e31f31adaedb7234.png)"></a>
-                        <a class="image" style="background-image: url(php/postagens/2/5740bd58fa7975d5699c0deb53a4bf9c.png)"></a>
-                        <a class="image" style="background-image: url(php/postagens/1/8b6757af1b3b52f4e31f31adaedb7234.png)"></a>
-                        <a class="image" style="background-image: url(php/postagens/2/5740bd58fa7975d5699c0deb53a4bf9c.png)"></a>
-                        <a class="image" style="background-image: url(php/postagens/1/8b6757af1b3b52f4e31f31adaedb7234.png)"></a>
-                        <a class="image" style="background-image: url(php/postagens/2/5740bd58fa7975d5699c0deb53a4bf9c.png)"></a>
-                        <a class="image" style="background-image: url(php/postagens/1/8b6757af1b3b52f4e31f31adaedb7234.png)"></a>
-                        <a class="image" style="background-image: url(php/postagens/2/5740bd58fa7975d5699c0deb53a4bf9c.png)"></a>
-                        <a class="image" style="background-image: url(php/postagens/1/8b6757af1b3b52f4e31f31adaedb7234.png)"></a>
-                        <a class="image" style="background-image: url(php/postagens/2/5740bd58fa7975d5699c0deb53a4bf9c.png)"></a>
-                        <a class="image" style="background-image: url(php/postagens/1/8b6757af1b3b52f4e31f31adaedb7234.png)"></a>
-                        <a class="image" style="background-image: url(php/postagens/2/5740bd58fa7975d5699c0deb53a4bf9c.png)"></a>
-                        <a class="image" style="background-image: url(php/postagens/1/8b6757af1b3b52f4e31f31adaedb7234.png)"></a>
-                        <a class="image" style="background-image: url(php/postagens/2/5740bd58fa7975d5699c0deb53a4bf9c.png)"></a>
-                    </div>
+                 <?php require_once("php/postagens.php");?>
                 </div>
             </div>
             <!-- End of Main Content -->

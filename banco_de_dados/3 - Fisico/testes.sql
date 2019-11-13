@@ -135,8 +135,8 @@ INSERT INTO materia (id_area, nome_materia) VALUES (4, "Informática");
 
 SELECT id_tag FROM tag WHERE nome_tag LIKE '%%';
 
-INSERT INTO tag_post (id_postagem, id_tag) VALUES;
-
 SELECT count(*) FROM tag WHERE nome_tag LIKE '%hidrocarbonetos%';
 SELECT count(*) FROM tag WHERE nome_tag LIKE '%quimicaorganica%';
 SELECT count(*) FROM tag WHERE nome_tag LIKE '%quimica%';
+
+SELECT postagem.id_postagem, postagem.imagem_postagem FROM postagem WHERE id_estudante = 2;
