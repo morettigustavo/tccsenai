@@ -11,6 +11,7 @@ $(function () {
   jQuery.ajax({
     url: "php/verificar_login.php",
     success: function (retorno) {
+      console.log(retorno);
       if (retorno == "false") {
         window.location.href = 'login.html';
       } else if (retorno == "true") {
@@ -24,6 +25,8 @@ $(function () {
             }
           }
         });
+      }else if(retorno == "reset" ){
+        location.reload();
       }
     }
   });

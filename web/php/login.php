@@ -15,15 +15,25 @@ if($line == 0){
     echo "false";
 }else{
     session_start();
-    $_SESSION['id_estudante'] = $line['id_estudante'];
+    $_SESSION['id_estudante']  = $line['id_estudante'];
     $_SESSION['primeiro_nome'] = $line['primeiro_nome_usuario'];
-    $_SESSION['segundo_nome'] = $line['segundo_nome_usuario'];
-    $_SESSION['email'] = $line['email_usuario'];
-    $_SESSION['senha'] = $line['senha_usuario'];
-    $_SESSION['imagem'] = $line['imagem_usuario'];
+    $_SESSION['segundo_nome']  = $line['segundo_nome_usuario'];
+    $_SESSION['email']         = $line['email_usuario'];
+    $_SESSION['senha']         = $line['senha_usuario'];
+    $_SESSION['imagem']        = $line['imagem_usuario'];
     
     $id = $line['id_estudante'];
     $data = date('Y-m-d');
     $hora = date('H:i:s');
     echo "true";
+
+    if($rememberMe == "true"){
+        $time = time() + 3600 * 24 *7;
+        setcookie('id_estudante' , $line['id_estudante']         , $time);
+        setcookie('primeiro_nome', $line['primeiro_nome_usuario'], $time);
+        setcookie('segundo_nome' , $line['segundo_nome_usuario'] , $time);
+        setcookie('email'        , $line['email_usuario']        , $time);
+        setcookie('senha'        , $line['senha_usuario']        , $time);
+        setcookie('imagem'       , $line['imagem_usuario']       , $time);
+    }
 }

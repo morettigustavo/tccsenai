@@ -1,21 +1,27 @@
 let formEnt = document.querySelector("#formEnt");
 
-let email = document.querySelector("#email");
-let password = document.querySelector("#password");
-let customCheck = document.querySelector("#customCheck");
+let email = $("#email");
+let password = $("#password");
+let customCheck = $("#customCheck");
+
+let entradas = [email,password];
 
 formEnt.addEventListener("submit", function(event){
     event.preventDefault();
 
-    if(email.value == ""){
+    if(email.val() == ""){
         email.focus();
-    }else if(password.value == ""){
+        email.addClass("is-invalid");
+        $("#ivEmail").text("Email Vazio");
+    }else if(password.val() == ""){
         password.focus();
+        password.addClass("is-invalid");
+        $("#ivSenha").text("Senha Vazia");
     }else{
         let usuario = {
-            email: email.value,
-            password: password.value,
-            rememberMe: true
+            email: email.val(),
+            password: password.val(),
+            rememberMe: customCheck.prop( "checked" )
         };
     
         jQuery.ajax({
@@ -26,13 +32,39 @@ formEnt.addEventListener("submit", function(event){
                 if(retorno == "true"){
                     window.location.href = "index.php";
                 }else{
-                    console.log("Email ou senha errados");
+                    console.log(retorno);
+                    email.focus();
+                    email.addClass("is-invalid");
+                    $("#ivEmail").text("Email ou Senha inválidos");
                 }
             }
         });
     }
 });
 
-function go(){
-    window.location.href = "index.php";
-}
+$(function(){
+    entradas.forEach(element => {
+        element.change(function(){
+            if(element.val() != ""){
+                $("#ivEmail").text("");
+                element.addClass("is-valid");
+                element.removeClass("is-invalid");
+            }else{
+                element.removeClass("is-valid");
+            }
+
+            if(element.attr('id') == 'email'){
+                if(element.val().indexOf('@') != -1 && element.val().substring(element.val().indexOf('@')).indexOf('.') != -1){
+                    email.addClass("is-valid");
+                    email.removeClass("is-invalid");
+                    $("#ivEmail").text("");
+                }else{
+                    email.focus();
+                    email.addClass("is-invalid");
+                    email.removeClass("is-valid");
+                    $("#ivEmail").text("Email Inválido");
+                }
+            }
+        });
+    });
+});

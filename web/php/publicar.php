@@ -7,6 +7,7 @@ $titulo = $_POST['titulo'];
 $area = $_POST['areaConhecimento'];
 $materia = $_POST['materia'];
 $tags_string = $_POST['tags'];
+$arquivo_tmp = $_FILES['map']['tmp_name'];
 
 //Id do ususario logado na sessao
 $id_user = $_SESSION['id_estudante'];
@@ -24,19 +25,19 @@ $id_materia = mysqli_fetch_array(mysqli_query($link, "SELECT id_materia FROM mat
 $sql = "INSERT INTO postagem(id_estudante,id_materia,titulo_postagem,imagem_postagem) VALUES ($id_user,$id_materia,'$titulo','$nome')";
 mysqli_query($link, $sql);
 
-//Pega o id da iultima postagem
-$sql = "SELECT id_postagem FROM postagem ORDER BY id_postagem DESC LIMIT 1;";
-$resultado = mysqli_query($link, $sql);
-$line = mysqli_fetch_array($resultado);
-$id_post = $line['id_postagem'];
+//Pega o id da postagem que acabou de ser feita
+$id_post = mysqli_insert_id($link);
 
 //Criação da pasta onde sera armazenada a imagem(mapa ou ficha de estudo)
+
+//Pasta de armazenamento
+$pasta = "postagens";
+@mkdir($pasta, 0777);
 $pasta = "postagens/$id_post";
 @mkdir($pasta, 0777);
 $destino = "postagens/$id_post/" . md5($_FILES['map']['name']) . ".png";
 
-$arquivo_tmp = $_FILES['map']['tmp_name'];
-
+//Move a imagem de temporario para fixo
 move_uploaded_file($arquivo_tmp, $destino);
 
 

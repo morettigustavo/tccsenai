@@ -1,6 +1,6 @@
 <?php
 require_once('php/conexao.php');
-$id_estudante = $_SESSION['id_estudante'];
+$id_estudante = isset($_SESSION['id_estudante' ])?$_SESSION['id_estudante' ]:$_COOKIE['id_estudante'];
 
 $sql = "SELECT 
 usuario.id_estudante,usuario.primeiro_nome_usuario,usuario.segundo_nome_usuario, usuario.imagem_usuario,

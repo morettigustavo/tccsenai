@@ -28,7 +28,7 @@ CREATE TABLE  IF NOT EXISTS `materia` (
 
 CREATE TABLE IF NOT EXISTS `tag` (
   `id_tag` int(11) NOT NULL AUTO_INCREMENT,
-  `nome_tag` varchar(16) NOT NULL,
+  `nome_tag` varchar(32) NOT NULL,
   PRIMARY KEY (`id_tag`)
 );
 
