@@ -46,7 +46,7 @@ while($line = mysqli_fetch_array($query)){
     $tags = "";
 
     while($line2 = mysqli_fetch_array($query2)){
-        $tags .= "#".$line2['nome_tag'];
+        $tags .= "#".$line2['nome_tag']." ";
     }
     ?>
 
