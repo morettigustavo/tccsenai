@@ -144,3 +144,29 @@ SELECT postagem.id_postagem, postagem.imagem_postagem FROM postagem WHERE id_est
 SELECT nome_tag FROM tag_post 
 INNER JOIN tag ON tag_post.id_tag = tag.id_tag
 WHERE id_postagem = 5;
+
+SELECT * FROM usuario;
+
+SELECT * FROM tag_post
+INNER JOIN tag ON tag.id_tag = tag_post.id_tag
+INNER JOIN postagem ON tag_post.id_postagem = postagem.id_postagem
+WHERE tag.nome_tag LIKE '%quimica%' ORDER BY (SELECT count(*) curtidas WHERE tipo_curtida = 1 AND id_postagem = postagem.id_postagem);
+
+SELECT * FROM postagem
+INNER JOIN tag_post on postagem.id_postagem = tag_post.id_postagem
+INNER JOIN tag ON tag.id_tag = tag_post.id_tag 
+WHERE tag.nome_tag LIKE '%quimica%';
+
+SELECT DISTINCT postagem.id_postagem FROM postagem
+INNER JOIN tag_post on postagem.id_postagem = tag_post.id_postagem
+INNER JOIN tag ON tag.id_tag = tag_post.id_tag 
+WHERE tag.nome_tag LIKE '%quimica%';
+
+SELECT DISTINCT postagem.id_postagem, postagem.imagem_postagem FROM postagem
+INNER JOIN tag_post on postagem.id_postagem = tag_post.id_postagem
+INNER JOIN tag ON tag.id_tag = tag_post.id_tag 
+WHERE tag.nome_tag LIKE '%quimica%';
+
+SELECT nome_tag FROM tag_post 
+INNER JOIN tag ON tag.id_tag = tag_post.id_tag
+WHERE id_postagem = 1;

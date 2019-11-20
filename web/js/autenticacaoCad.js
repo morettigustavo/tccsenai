@@ -35,7 +35,8 @@ formCad.addEventListener("submit", function (event) {
         data: usuario,
         success: function (retorno) {
             if(retorno){
-                window.location.href = "login.html";
+                // window.location.href = "login.html";
+                location.reload();
             }else{
                 console.log("Usuario não cadastrado");
             }

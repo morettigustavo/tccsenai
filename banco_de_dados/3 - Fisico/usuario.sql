@@ -25,8 +25,10 @@ SET time_zone = "+00:00";
 --
 
 INSERT INTO `usuario` (`id_estudante`, `primeiro_nome_usuario`, `segundo_nome_usuario`, `portifolio_usuario`, `imagem_usuario`, `email_usuario`, `senha_usuario`) VALUES
-(1, 'Gustavo', 'Moretti', NULL, NULL, 'moretti@gmail.com', '123'),
-(2, 'Alexandre', 'Wesley', NULL, NULL, 'alexandre@gmail.com', '123');
+('Gustavo', 'Moretti', 'moretti@gmail.com', '123'),
+('Alexandre', 'Wesley', 'alexandre@gmail.com', '123'),
+('Paulo', 'Eduardo', 'paulo@gmail.com', '123'),
+('Gustavo', 'Lucas', 'gustavo@gmail.com', '123');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
