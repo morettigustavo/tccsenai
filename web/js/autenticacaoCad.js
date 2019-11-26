@@ -7,8 +7,6 @@ let email = $("#email");
 let password = $("#password");
 let password_again = $("#password_again");
 
-let entradas = [primeiro_nome,segundo_nome,email,password,password_again];
-
 formCad.addEventListener("submit", function (event) {
     event.preventDefault();
     let ver = true;
@@ -20,7 +18,6 @@ formCad.addEventListener("submit", function (event) {
         }
     });
     if(ver){
-
         let usuario = {
             primeiro_nome: primeiro_nome.val(),
             segundo_nome: segundo_nome.val(),
@@ -35,8 +32,8 @@ formCad.addEventListener("submit", function (event) {
         data: usuario,
         success: function (retorno) {
             if(retorno){
-                // window.location.href = "login.html";
-                location.reload();
+                window.location.href = "login.html";
+                // location.reload();
             }else{
                 console.log("Usuario não cadastrado");
             }
@@ -46,28 +43,53 @@ formCad.addEventListener("submit", function (event) {
 });
 
 $(function(){
-    entradas.forEach(element => {
-        element.change(function(){
+    primeiro_nome.keyup(function(){
+        verificar(primeiro_nome);
+    });
+
+    segundo_nome.keyup(function(){
+        verificar(segundo_nome);
+    });
+
+    email.keyup(function(){
+        if(email.val().indexOf('@') != -1 && email.val().substring(email.val().indexOf('@')).indexOf('.') != -1){
+            email.addClass("is-valid");
+            email.removeClass("is-invalid");
+        }else{
+            email.addClass("is-invalid");
+            email.removeClass("is-valid");
+        }
+    });
+
+    password.keyup(function(){
+        verificar(password);
+        if(password_again.val() != ""){
+            verificarSenhas();
+        }
+    });
+
+    password_again.keyup(function(){
+        verificarSenhas();
+    });
+
+    function verificarSenhas(){
+        if(password.val() != password_again.val()){
+            password_again.addClass("is-invalid");
+            password_again.removeClass("is-valid");
+        }else{
+            password_again.removeClass("is-invalid");
+            password_again.addClass("is-valid");
+        }
+    }
+
+    function verificar(element){
+        if(element.val() != ""){
             element.removeClass("is-invalid");
             element.addClass("is-valid");
-
-            if(element.attr('id') == 'email'){
-                if(element.val().indexOf('@') != -1 && element.val().substring(element.val().indexOf('@')).indexOf('.') != -1){
-                    element.addClass("is-valid");
-                }else{
-                    element.addClass("is-invalid");
-                }
-            }
-            if(element.attr('id') == 'password' || element.attr('id') == 'password_again'){
-                if(password.val() != password_again.val()){
-                    password_again.addClass("is-invalid");
-                    password_again.removeClass("is-valid");
-                }else{
-                    password_again.addClass("is-valid");
-                    password_again.removeClass("is-invalid");
-                }
-            }
-        });
-    });
+        }else{
+            element.removeClass("is-valid");
+            element.addClass("is-invalid");
+        }
+    }
 });
 
