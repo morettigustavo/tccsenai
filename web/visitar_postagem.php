@@ -3,7 +3,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>Feed</title>
+    <title>Postagem</title>
     <?php require_once("geral/cabecalho.html"); session_start();?>
     <link href="css/publi.css" rel="stylesheet">
     <link href="css/imgModal.css" rel="stylesheet">
