@@ -40,3 +40,24 @@ jQuery("i.curtida").click(function(){
         }
     });
 });
+
+$('.formComent').submit(function(event){
+    event.preventDefault();
+    let id_postagem = $(this).find('[class="comment"]').attr('id').substr(3);
+    let comentario = $(this).find('[class="comment"]').val();
+
+    let data = {
+        acao: 'enviar',
+        id_postagem: id_postagem,
+        comentario: comentario
+    };
+
+    jQuery.ajax({
+        url: "php/comentarios.php",
+        type: "GET",
+        data: data,
+        success: function (retorno) {
+            location.reload();
+        }
+    });
+});

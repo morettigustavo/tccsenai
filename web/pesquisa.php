@@ -3,7 +3,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>Feed</title>
+    <title>Pesquisa</title>
     <?php require_once("geral/cabecalho.html");?>
     
     <link href="css/publi.css" rel="stylesheet">

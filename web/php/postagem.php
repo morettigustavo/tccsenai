@@ -98,12 +98,17 @@ while($line = mysqli_fetch_array($query)){
                 <li><a><i id="d_<?php echo $id_postagem?>" class="fa fa-thumbs-down curtida <?php if($is_unliked){echo "liked";}?>"></i><em id="ld_<?php echo $id_postagem?>"><?php echo $qnt_neg?></em></a></li>
             </ul>
             <ul class="float-right">
-                <li><a><i class="fa fa-comments"></i><em><?php echo $qnt_com?></em></a></li>
+                <li><a href="<?php echo "visitar_postagem.php?id_postagem=".$id_postagem?>"><i class="fa fa-comments"></i><em><?php echo $qnt_com?></em></a></li>
             </ul>
         </div>
         <!--/ cardbox-base -->
-        <div class="container cardbox-comments">
-            <input class="comment" placeholder="Escrever um comentario" type="text">
+        <div class="container cont-comment">
+            <form class="formComent" id="f_<?php echo $id_postagem?>">
+                <input placeholder="Escreva um comentário..."  id="ci_<?php echo $id_postagem?>" class="comment" type="text">
+                <button class="btnEnviar">
+                    <i id="cb_<?php echo $id_postagem?>" class="fas fa-paper-plane"></i>
+                </button>
+            </form>
         </div>
         <!--/ cardbox-like -->
 

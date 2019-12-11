@@ -2,7 +2,7 @@
 session_start();
 require_once('conexao.php');
 
-$id_estudante =  isset($_GET['id_estudante' ])?$_GET['id_estudante']:0;
+$id_estudante =  $_SESSION['id_estudante'];
 $id_comentario = isset($_GET['id_comentario'])?$_GET['id_comentario']:0;
 $id_postagem = isset($_GET['id_postagem'])?$_GET['id_postagem']:0;   
 $comentario = isset($_GET['comentario'])?$_GET['comentario']:"";
@@ -32,7 +32,7 @@ switch($acao){
         echo "Opção inexistente";
     break;
 }
-
+echo $sql;
 $query = mysqli_query($link, $sql);
 
 if($acao == "comentarios"){

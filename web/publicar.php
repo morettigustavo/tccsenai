@@ -57,6 +57,7 @@
                                                         <select id="areaConhecimento" name="areaConhecimento" class="form-control">
                                                             <option value="0">Selecionar</option>
                                                             <option value="1">Ciências Humanas</option>
+                                                            <option value="4">Ciências Exatas</option>
                                                             <option value="2">Ciências da Natureza</option>
                                                             <option value="3">Linguagens e Códigos</option>
                                                         </select>

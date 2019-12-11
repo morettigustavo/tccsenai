@@ -170,3 +170,10 @@ WHERE tag.nome_tag LIKE '%quimica%';
 SELECT nome_tag FROM tag_post 
 INNER JOIN tag ON tag.id_tag = tag_post.id_tag
 WHERE id_postagem = 1;
+
+INSERT INTO comentarios(id_estudante, id_postagem, texto_comentario, data_comentario, hora_comentario)  VALUES (1, 2, 'joao', '2019-12-11', '22:36:29');
+
+SELECT usuario.imagem_usuario, comentarios.texto_comentario
+FROM comentarios
+INNER JOIN usuario ON comentarios.id_estudante = usuario.id_estudante
+WHERE id_postagem = 2;

@@ -90,9 +90,32 @@ while($line = mysqli_fetch_array($query)){
                 <li><a><i class="fa fa-comments"></i><em><?php echo $qnt_com?></em></a></li>
             </ul>
         </div>
-        <!--/ cardbox-base -->
-        <div class="container cardbox-comments">
-            <input class="comment" placeholder="Escrever um comentario" type="text">
+        <?php 
+            $sql = "SELECT usuario.imagem_usuario,usuario.id_estudante, comentarios.texto_comentario
+            FROM comentarios
+            INNER JOIN usuario ON comentarios.id_estudante = usuario.id_estudante
+            WHERE id_postagem = $id_postagem";
+            $query3 = mysqli_query($link, $sql);
+            
+            while($line3 = mysqli_fetch_array($query3)){
+                $id_estudante_coment = $line3['id_estudante'];
+                $caminho_coment = isset($line3['imagem_usuario'])?"php/usuarios/".$id_estudante_coment."/".$line3['imagem_usuario'].".png":"img/usuario.png";
+                ?>
+                <div class="container cont-comment">
+            <div class="btnEnviar" style="display:inline;padding: 15px 10px 20px 10px;" >
+                    <a href="visitar_perfil.php?id_estudante=<?php echo $id_estudante_coment?>"><img src="<?php echo $caminho_coment;?>" class="imgComment img-fluid rounded-circle"></a>
+            </div>
+            <input class="comment" type="text" readonly="readonly" value="<?php echo $line3['texto_comentario']?>">
+        </div>
+        <?php } ?>
+        <!--/ cardbox-base --> 
+        <div class="container cont-comment">
+            <form class="formComent" id="f_<?php echo $id_postagem?>">
+                <input placeholder="Escreva um comentário..." id="ci_<?php echo $id_postagem?>" class="comment" type="text">
+                <button class="btnEnviar">
+                    <i id="cb_<?php echo $id_postagem?>" class="fas fa-paper-plane"></i>
+                </button>
+            </form>
         </div>
         <!--/ cardbox-like -->
 

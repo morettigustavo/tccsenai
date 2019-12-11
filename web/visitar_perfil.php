@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>Feed</title>
+    <title>Perfil</title>
     <?php require_once("geral/cabecalho.html");?>
 
     <!-- Perfil css -->

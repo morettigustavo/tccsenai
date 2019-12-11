@@ -187,23 +187,6 @@
     overflow: auto
 }
 
-.comment {
-    background-color: #fff;
-    line-height: 10px;
-    padding: 15px 60px 20px 10px;
-    border: none;
-    border-radius: 4px;
-    width: 100%;
-    font-family: Rokkitt, serif;
-    font-size: 14px;
-    color: #8d8d8d;
-    height: inherit;
-    font-weight: 700;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
 .author a {
     font-family: Rokkitt, serif;
     font-size: 16px;
@@ -214,4 +197,48 @@
     font-family: Rokkitt, serif;
     font-size: 16px;
     color: #8d8d8d
+}
+
+.comment {
+    background-color: #fff;
+    line-height: 10px;
+    padding: 15px 60px 20px 10px;
+    border: none;
+    border-radius: 4px;
+    width: 80%;
+    font-family: Rokkitt, serif;
+    font-size: 1em;
+    color: #8d8d8d;
+    height: inherit;
+    font-weight: 700;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.btnEnviar{
+    background-color: #fff;
+    line-height: 10px;
+    padding: 15px 25px 20px 10px;
+    border: none;
+    border-radius: 4px;
+    width: 5%;
+    font-family: Rokkitt, serif;
+    font-size: 1em;
+    color: #8d8d8d;
+    height: inherit;
+    font-weight: 700;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.cont-comment{
+    text-align: center;
+}
+
+.imgComment{
+    text-align: center;
+    width: 5%;
 }
