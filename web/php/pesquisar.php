@@ -3,10 +3,10 @@
 require_once('php/conexao.php');
 $tags = $_GET['tags'];
 
-$sql = "SELECT DISTINCT postagem.id_postagem, postagem.imagem_postagem FROM postagem
+$sql = "SELECT DISTINCT postagem.id_postagem, postagem.imagem_postagem, postagem.ativa FROM postagem
 INNER JOIN tag_post on postagem.id_postagem = tag_post.id_postagem
 INNER JOIN tag ON tag.id_tag = tag_post.id_tag 
-WHERE tag.nome_tag LIKE '%$tags%'";
+WHERE tag.nome_tag LIKE '%$tags%' AND postagem.ativa = 0";
 
 $query = mysqli_query($link, $sql);
 

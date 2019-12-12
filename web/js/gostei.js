@@ -61,3 +61,35 @@ $('.formComent').submit(function(event){
         }
     });
 });
+
+$('.btnDenunciar').click(function(){
+    let id_postagem = $(this).attr('id').substr(3);
+
+    let data = {
+        id_postagem: id_postagem
+    }
+    jQuery.ajax({
+        url: "php/denunciar.php",
+        type: "GET",
+        data: data,
+        success: function (retorno) {
+            location.reload();
+        }
+    });
+});
+
+$('.btnApagar').click(function(){
+    let id_postagem = $(this).attr('id').substr(3);
+
+    let data = {
+        id_postagem: id_postagem
+    }
+    jQuery.ajax({
+        url: "php/apagarPostagem.php",
+        type: "POST",
+        data: data,
+        success: function (retorno) {
+            location.reload();
+        }
+    });
+});

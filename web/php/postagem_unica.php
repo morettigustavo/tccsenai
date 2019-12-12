@@ -5,14 +5,14 @@ $id_postagem = $_GET['id_postagem'];
 
 $sql = "SELECT 
 usuario.id_estudante,usuario.primeiro_nome_usuario,usuario.segundo_nome_usuario, usuario.imagem_usuario,
-postagem.id_postagem, postagem.titulo_postagem, postagem.imagem_postagem,
+postagem.id_postagem, postagem.titulo_postagem, postagem.imagem_postagem, postagem.ativa,
 materia.nome_materia,
 area.nome_area
 FROM postagem 
 INNER JOIN materia ON postagem.id_materia = materia.id_materia
 INNER JOIN area ON materia.id_area = area.id_area
 INNER JOIN usuario ON postagem.id_estudante = usuario.id_estudante 
-WHERE postagem.id_postagem = $id_postagem";
+WHERE postagem.id_postagem = $id_postagem AND postagem.ativa = 0";
 
 $query = mysqli_query($link, $sql);
 
@@ -47,13 +47,20 @@ while($line = mysqli_fetch_array($query)){
                 <button class="btn btn-flat " type="button" data-toggle="dropdown" aria-expanded="false">
                     <em class="fa fa-ellipsis-h"></em>
                 </button>
-                <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu"
-                    style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                    <a class="dropdown-item" href="#">Salvar</a>
-                    <a class="dropdown-item" href="#">Denunciar</a>
+                <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu"style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+                    <?php 
+                $sql = "SELECT count(*) FROM denuncias WHERE id_postagem = $id_postagem AND id_estudante = $id_estudante";
+                $query4 = mysqli_query($link, $sql);
+                if(mysqli_fetch_array($query4)['count(*)'] == 0){?>
+
+<a class="dropdown-item btnDenunciar" id="dn_<?php echo $id_postagem?>" style="cursor:Pointer">Denunciar</a>
+<?php }else{?>
+    
+    <a class="dropdown-item" id="dn_<?php echo $id_postagem?>" >Denunciado</a>
+                <?php }?>
                     <?php if($id_estudante == $id_estudante_post){
  ?>
-                    <a class="dropdown-item" href="#">Apagar postagem</a>
+                    <a class="dropdown-item" style="cursor:Pointer">Apagar postagem</a>
 <?php
                     }
                     ?>

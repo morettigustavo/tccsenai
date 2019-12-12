@@ -116,3 +116,15 @@ $(document).ready(function () {
         });
     });
 });
+
+$('#btnPubli').click(function (event) {
+    event.preventDefault();
+    let id_estudante;
+    jQuery.ajax({
+        type: "POST",
+        url: "php/usuario_id.php",
+        success: function (retorno) {
+            $(location).attr('href','postagens.php?id_estudante='+retorno);
+        }
+    });
+});

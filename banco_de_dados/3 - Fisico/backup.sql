@@ -162,6 +162,7 @@ CREATE TABLE IF NOT EXISTS `postagem` (
   `id_materia` int(11) NOT NULL,
   `titulo_postagem` varchar(64) DEFAULT NULL,
   `imagem_postagem` varchar(64) DEFAULT NULL,
+  `ativa` int(1) DEFAULT 0,
   PRIMARY KEY (`id_postagem`),
   KEY `id_estudante` (`id_estudante`),
   KEY `id_materia` (`id_materia`)

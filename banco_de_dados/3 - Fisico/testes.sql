@@ -173,7 +173,15 @@ WHERE id_postagem = 1;
 
 INSERT INTO comentarios(id_estudante, id_postagem, texto_comentario, data_comentario, hora_comentario)  VALUES (1, 2, 'joao', '2019-12-11', '22:36:29');
 
-SELECT usuario.imagem_usuario, comentarios.texto_comentario
+SELECT usuario.imagem_usuario,usuario.id_estudante, comentarios.texto_comentario
 FROM comentarios
 INNER JOIN usuario ON comentarios.id_estudante = usuario.id_estudante
 WHERE id_postagem = 2;
+
+SELECT count(*) FROM denuncias WHERE id_postagem = 2 AND id_estudante = 1;
+
+UPDATE postagem SET ativa = 1 WHERE id_postagem = 1;
+
+SELECT usuario.id_estudante,usuario.primeiro_nome_usuario,usuario.segundo_nome_usuario, usuario.imagem_usuario, postagem.id_postagem, postagem.titulo_postagem, postagem.imagem_postagem, postagem.ativa, materia.nome_materia, area.nome_area FROM seguidor INNER JOIN postagem ON seguidor.seguido = postagem.id_estudante INNER JOIN materia ON postagem.id_materia = materia.id_materia INNER JOIN area ON materia.id_area = area.id_area INNER JOIN usuario ON postagem.id_estudante = usuario.id_estudante WHERE seguidor.seguidor = 1 UNION SELECT usuario.id_estudante,usuario.primeiro_nome_usuario,usuario.segundo_nome_usuario, usuario.imagem_usuario, postagem.id_postagem, postagem.titulo_postagem, postagem.imagem_postagem, materia.nome_materia, area.nome_area FROM postagem INNER JOIN materia ON postagem.id_materia = materia.id_materia INNER JOIN area ON materia.id_area = area.id_area INNER JOIN usuario ON postagem.id_estudante = usuario.id_estudante WHERE postagem.id_estudante = 1 AND postagem.ativa = 0 ORDER BY id_postagem DESC
+
+SELECT DISTINCT postagem.id_postagem, postagem.imagem_postagem, postagem.ativa FROM postagem INNER JOIN tag_post on postagem.id_postagem = tag_post.id_postagem INNER JOIN tag ON tag.id_tag = tag_post.id_tag WHERE tag.nome_tag AND postagem.ativa = 0 LIKE '%acido%'
