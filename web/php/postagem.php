@@ -25,7 +25,6 @@ INNER JOIN area ON materia.id_area = area.id_area
 INNER JOIN usuario ON postagem.id_estudante = usuario.id_estudante 
 WHERE postagem.id_estudante = $id_estudante AND postagem.ativa = 0 ORDER BY id_postagem DESC";
 $query = mysqli_query($link, $sql);
-//JSON de retorno da postagem(Postagem em forma de um json facilita para o front end transformar em dados na tela)
 
 while($line = mysqli_fetch_array($query)){
     $id_postagem = $line['id_postagem'];
